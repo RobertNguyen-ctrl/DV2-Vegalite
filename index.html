@@ -61,7 +61,7 @@
     }
     .hero-stats {
       display: flex;
-      gap: 40px;
+      gap: 32px;
       flex-wrap: wrap;
     }
     .hero-stat { border-left: 3px solid #7ec8e3; padding-left: 14px; }
@@ -91,12 +91,12 @@
     /* ══ TWO-COLUMN STORY BLOCK ══ */
     .story-block {
       max-width: 1100px;
-      margin: 32px auto;
+      margin: 20px auto;
       padding: 0 40px;
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
     }
     .story-block.reverse { grid-template-columns: 1.6fr 1fr; }
     .story-block.reverse .story-text { order: 2; }
@@ -143,7 +143,7 @@
     /* ══ FULL-WIDTH CHART ══ */
     .full-chart {
       max-width: 1100px;
-      margin: 32px auto;
+      margin: 20px auto;
       padding: 0 40px;
     }
     .full-chart-inner {
@@ -322,6 +322,30 @@
   </div>
 </div>
 
+<div class="divider"></div>
+
+<div class="section-header">
+  <h2>The gender gap in sport</h2>
+  <p>Which sports skew male or female — and by how much?</p>
+</div>
+
+<div class="story-block reverse">
+  <div class="story-chart">
+    <div class="chart-title">Fig 4 — Gender Participation Gap by Sport (%)</div>
+    <div id="chart4"></div>
+  </div>
+  <div class="story-text">
+    <h3>Rugby & Cricket are male-dominated — Netball & Dance are female-dominated</h3>
+    <p>The diverging bar chart shows the difference between male and female participation rates for each sport. Bars pointing right = more men; pointing left = more women.</p>
+    <p><strong>Rugby League (+38%)</strong> and <strong>Cricket (+34%)</strong> have the largest male skew. Meanwhile <strong>Netball (−28%)</strong> and <strong>Dance (−24%)</strong> lean heavily female.</p>
+    <p>Activities like <strong>Walking</strong> and <strong>Swimming</strong> sit near zero — genuinely gender-balanced participation.</p>
+    <div class="highlight">
+      <strong>Key insight:</strong> Team sports show the largest gender gaps. Individual activities are far more balanced — suggesting social norms shape sport choices more than physical ability.
+    </div>
+  </div>
+</div>
+
+
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
   <p>FIT2179 Data Visualisation 2 &nbsp;·&nbsp; Monash University &nbsp;·&nbsp; 2026</p>
@@ -438,6 +462,58 @@ const chart3 = {
 vegaEmbed('#chart1', chart1, {actions:false}).then(()=>console.log("C1 ✅")).catch(console.error);
 vegaEmbed('#chart2', chart2, {actions:false}).then(()=>console.log("C2 ✅")).catch(console.error);
 vegaEmbed('#chart3', chart3, {actions:false}).then(()=>console.log("C3 ✅")).catch(console.error);
+
+const chart4 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 420, "height": 380,
+  "data": { "values": [
+    {"sport":"Rugby League",    "gap": 38},
+    {"sport":"Cricket",         "gap": 34},
+    {"sport":"AFL",             "gap": 28},
+    {"sport":"Rugby Union",     "gap": 24},
+    {"sport":"Golf",            "gap": 18},
+    {"sport":"Basketball",      "gap":  8},
+    {"sport":"Cycling",         "gap":  6},
+    {"sport":"Football (Soccer)","gap": 5},
+    {"sport":"Tennis",          "gap":  2},
+    {"sport":"Running/Jogging", "gap":  1},
+    {"sport":"Swimming",        "gap": -1},
+    {"sport":"Walking",         "gap": -2},
+    {"sport":"Gym/Fitness",     "gap": -4},
+    {"sport":"Bushwalking",     "gap": -6},
+    {"sport":"Yoga/Pilates",    "gap":-21},
+    {"sport":"Dance",           "gap":-24},
+    {"sport":"Netball",         "gap":-28}
+  ]},
+  "layer": [
+    {
+      "mark": {"type":"bar","cornerRadiusEnd":4},
+      "encoding": {
+        "y": {"field":"sport","type":"nominal","sort":"-x","title":null,"axis":{"labelFontSize":11}},
+        "x": {
+          "field":"gap","type":"quantitative",
+          "title":"← More Female   |   More Male →",
+          "axis":{"labelFontSize":10,"titleFontSize":11}
+        },
+        "color": {
+          "condition": {"test":"datum.gap > 0","value":"#2b8cbe"},
+          "value":"#e07b8a"
+        },
+        "tooltip":[
+          {"field":"sport","type":"nominal","title":"Sport"},
+          {"field":"gap","type":"quantitative","title":"Gender Gap (M−F %)"}
+        ]
+      }
+    },
+    {
+      "mark":{"type":"rule","color":"#999","strokeWidth":1},
+      "encoding":{"x":{"datum":0}}
+    }
+  ],
+  "config":{"view":{"stroke":null},"background":"white"}
+};
+vegaEmbed('#chart4', chart4, {actions:false}).then(()=>console.log("C4 ✅")).catch(console.error);
+
 </script>
 </body>
 </html>
