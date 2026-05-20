@@ -4,151 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Australian Sport Participation | DV2</title>
-
-  <!-- Vega-Lite libraries -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #222; }
 
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f0f4f8;
-      color: #222;
-    }
-
-    /* ── HEADER ── */
     header {
-      background: #1a3a5c;
-      color: white;
-      padding: 36px 60px 28px;
+      background: #1a3a5c; color: white; padding: 36px 60px 28px;
     }
-    header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    header p {
-      font-size: 1rem;
-      opacity: 0.8;
-      max-width: 700px;
-      line-height: 1.6;
-    }
+    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    header p  { font-size: 1rem; opacity: 0.8; max-width: 700px; line-height: 1.6; }
 
-    /* ── LAYOUT ── */
     main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      max-width: 1100px; margin: 0 auto;
+      padding: 40px 24px; display: flex; flex-direction: column; gap: 32px;
     }
-
-    /* ── CHART CARD ── */
     .chart-card {
-      background: white;
-      border-radius: 12px;
-      padding: 28px 32px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      background: white; border-radius: 12px;
+      padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
-    .chart-card h2 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #1a3a5c;
-      margin-bottom: 6px;
-    }
-    .chart-card p.subtitle {
-      font-size: 0.88rem;
-      color: #666;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
+    .chart-card h2 { font-size: 1.15rem; font-weight: 600; color: #1a3a5c; margin-bottom: 6px; }
+    .chart-card p.subtitle { font-size: 0.88rem; color: #666; margin-bottom: 20px; line-height: 1.5; }
 
-    /* ── CHART CONTAINERS ── */
-    #chart1 { width: 100%; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 0.82rem;
-      color: #999;
-    }
+    footer { text-align: center; padding: 24px; font-size: 0.82rem; color: #999; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>🏅 Australian Sport & Physical Activity</h1>
-  <p>
-    Exploring participation patterns across states, sports, age groups, and demographics.
-    Data source: AusPlay Survey 2023–24, Australian Sports Commission.
-  </p>
+  <p>Exploring participation patterns across states, sports, age groups, and demographics.
+     Data source: AusPlay Survey 2023–24, Australian Sports Commission.</p>
 </header>
 
 <main>
 
-  <!-- ══ CHART 1: Choropleth Map ══ -->
   <div class="chart-card">
     <h2>Participation Rate by State & Territory</h2>
     <p class="subtitle">
       Percentage of Australians aged 15+ who participated in sport or physical
-      activity at least once in the past 12 months.
+      activity at least once in the past 12 months. Hover over each state for details.
     </p>
     <div id="chart1"></div>
   </div>
 
-  <!-- ══ MORE CHARTS WILL GO HERE ══ -->
-
 </main>
 
-<footer>
-  FIT2179 Data Visualisation 2 · Monash University · 2026
-</footer>
+<footer>FIT2179 Data Visualisation 2 · Monash University · 2026</footer>
 
 <script>
-// ── CHART 1: Australia Choropleth Map ──────────────────────────────
+const stateData = [
+  { "state": "New South Wales",              "abbr": "NSW", "rate": 63.2, "participants": 5012000, "pop": 7928000 },
+  { "state": "Victoria",                     "abbr": "VIC", "rate": 65.1, "participants": 4238000, "pop": 6511000 },
+  { "state": "Queensland",                   "abbr": "QLD", "rate": 66.8, "participants": 3421000, "pop": 5122000 },
+  { "state": "South Australia",              "abbr": "SA",  "rate": 61.4, "participants": 1148000, "pop": 1869000 },
+  { "state": "Western Australia",            "abbr": "WA",  "rate": 67.9, "participants": 1876000, "pop": 2763000 },
+  { "state": "Tasmania",                     "abbr": "TAS", "rate": 58.3, "participants":  304000, "pop":  521000 },
+  { "state": "Northern Territory",           "abbr": "NT",  "rate": 54.7, "participants":  132000, "pop":  241000 },
+  { "state": "Australian Capital Territory", "abbr": "ACT", "rate": 72.1, "participants":  305000, "pop":  423000 }
+];
+
+const topoURL = "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/aus_state.topojson";
+
 const chart1 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 440,
-  "projection": { "type": "mercator" },
+  "height": 460,
   "layer": [
     {
+      // Layer 0: grey base — ensures all states visible even if lookup fails
       "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/aus_state.topojson",
+        "url": topoURL,
         "format": { "type": "topojson", "feature": "aus_state" }
       },
+      "projection": { "type": "equirectangular", "fit": true },
+      "mark": { "type": "geoshape", "fill": "#d0dde8", "stroke": "white", "strokeWidth": 1 }
+    },
+    {
+      // Layer 1: coloured choropleth
+      "data": {
+        "url": topoURL,
+        "format": { "type": "topojson", "feature": "aus_state" }
+      },
+      "projection": { "type": "equirectangular", "fit": true },
       "transform": [
         {
           "lookup": "properties.STATE_NAME",
           "from": {
-            "data": {
-              "values": [
-                { "state": "New South Wales",              "abbr": "NSW", "rate": 63.2, "participants": 5012000, "pop": 7928000 },
-                { "state": "Victoria",                     "abbr": "VIC", "rate": 65.1, "participants": 4238000, "pop": 6511000 },
-                { "state": "Queensland",                   "abbr": "QLD", "rate": 66.8, "participants": 3421000, "pop": 5122000 },
-                { "state": "South Australia",              "abbr": "SA",  "rate": 61.4, "participants": 1148000, "pop": 1869000 },
-                { "state": "Western Australia",            "abbr": "WA",  "rate": 67.9, "participants": 1876000, "pop": 2763000 },
-                { "state": "Tasmania",                     "abbr": "TAS", "rate": 58.3, "participants":  304000, "pop":  521000 },
-                { "state": "Northern Territory",           "abbr": "NT",  "rate": 54.7, "participants":  132000, "pop":  241000 },
-                { "state": "Australian Capital Territory", "abbr": "ACT", "rate": 72.1, "participants":  305000, "pop":  423000 }
-              ]
-            },
+            "data": { "values": stateData },
             "key": "state",
             "fields": ["abbr", "rate", "participants", "pop"]
           }
-        }
+        },
+        { "filter": "datum.rate != null" }
       ],
       "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1.5 },
       "encoding": {
         "color": {
           "field": "rate",
           "type": "quantitative",
-          "title": "Participation Rate (%)",
+          "title": "Participation (%)",
           "scale": {
             "type": "threshold",
             "domain": [57, 62, 65, 68],
@@ -157,8 +114,7 @@ const chart1 = {
           "legend": {
             "orient": "bottom-right",
             "labelExpr": "datum.label + '%'",
-            "titleFontSize": 12,
-            "labelFontSize": 11
+            "titleFontSize": 12, "labelFontSize": 11
           }
         },
         "tooltip": [
@@ -169,21 +125,18 @@ const chart1 = {
           { "field": "pop",                   "type": "quantitative", "title": "Population 15+",         "format": ","   }
         ]
       }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/aus_state.topojson",
-        "format": { "type": "topojson", "feature": "aus_state" }
-      },
-      "mark": { "type": "geoshape", "fill": null, "stroke": "#aaa", "strokeWidth": 0.4 }
     }
   ],
   "config": { "view": { "stroke": null }, "background": "white" }
 };
 
 vegaEmbed('#chart1', chart1, { actions: false, renderer: 'svg' })
-  .catch(console.error);
+  .then(result => {
+    // Debug: log what state names are in the TopoJSON
+    const view = result.view;
+    console.log("Chart 1 loaded OK");
+  })
+  .catch(err => console.error("Chart 1 error:", err));
 </script>
-
 </body>
 </html>
