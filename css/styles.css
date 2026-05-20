@@ -1,0 +1,21 @@
+/* ══ TEXT + 2 CHARTS STACKED ══ */
+.story-block-2 {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+  align-items: start;
+}
+.story-block-2 .chart-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.story-block-2 .story-chart {
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
