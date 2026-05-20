@@ -1,47 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Australian Sport Participation | DV2</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Australian Sport & Physical Activity</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #222; }
-    header { background: #1a3a5c; color: white; padding: 36px 60px 28px; }
-    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-    header p  { font-size: 1rem; opacity: 0.8; max-width: 700px; line-height: 1.6; }
-    main { max-width: 1100px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 32px; }
-    .chart-card { background: white; border-radius: 12px; padding: 28px 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-    .chart-card h2 { font-size: 1.15rem; font-weight: 600; color: #1a3a5c; margin-bottom: 6px; }
-    .chart-card p.subtitle { font-size: 0.88rem; color: #666; margin-bottom: 20px; line-height: 1.5; }
-    footer { text-align: center; padding: 24px; font-size: 0.82rem; color: #999; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f9fc;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    /* ══ HERO ══ */
+    .hero {
+      background: linear-gradient(135deg, #0d2137 0%, #1a4a7a 60%, #1e6fa5 100%);
+      color: white;
+      padding: 80px 60px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "🏅";
+      position: absolute;
+      right: 80px; top: 40px;
+      font-size: 120px;
+      opacity: 0.15;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #7ec8e3; }
+    .hero-sub {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { border-left: 3px solid #7ec8e3; padding-left: 14px; }
+    .hero-stat .num { font-size: 1.8rem; font-weight: 700; color: #7ec8e3; }
+    .hero-stat .lbl { font-size: 0.8rem; opacity: 0.75; }
+
+    /* ══ SECTION HEADER ══ */
+    .section-header {
+      max-width: 1100px;
+      margin: 60px auto 0;
+      padding: 0 40px;
+    }
+    .section-header h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      color: #0d2137;
+      border-bottom: 3px solid #1e6fa5;
+      display: inline-block;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .section-header p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ══ TWO-COLUMN STORY BLOCK ══ */
+    .story-block {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .story-block.reverse { grid-template-columns: 1.6fr 1fr; }
+    .story-block.reverse .story-text { order: 2; }
+    .story-block.reverse .story-chart { order: 1; }
+
+    .story-text h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.25rem;
+      color: #0d2137;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .story-text p {
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .story-text .highlight {
+      background: #e8f4fd;
+      border-left: 4px solid #1e6fa5;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+      color: #1a3a5c;
+      margin-top: 16px;
+    }
+    .story-text .highlight strong { color: #1e6fa5; }
+
+    .story-chart {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .story-chart .chart-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    /* ══ FULL-WIDTH CHART ══ */
+    .full-chart {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 0 40px;
+    }
+    .full-chart-inner {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+    .full-chart-inner .chart-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    /* ══ DIVIDER ══ */
+    .divider {
+      max-width: 1100px;
+      margin: 48px auto 0;
+      padding: 0 40px;
+      border-top: 1px solid #e0e7ef;
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #aaa;
+      font-size: 0.82rem;
+      margin-top: 60px;
+      border-top: 1px solid #e0e7ef;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>🏅 Australian Sport & Physical Activity</h1>
-  <p>Exploring participation patterns across states, sports, age groups, and demographics.
-     Data source: AusPlay Survey 2023–24, Australian Sports Commission.</p>
-</header>
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="hero-tag">AusPlay Survey · 2023–24</div>
+  <h1>How <span>Active</span> is<br>Australia?</h1>
+  <p class="hero-sub">
+    Exploring sport and physical activity participation patterns across
+    states, age groups, sports, and demographics using national survey data.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">64.3%</div>
+      <div class="lbl">National participation rate</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">16.8M</div>
+      <div class="lbl">Active Australians (15+)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">ACT</div>
+      <div class="lbl">Most active state (72.1%)</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">Walking</div>
+      <div class="lbl">Most popular activity</div>
+    </div>
+  </div>
+</section>
 
-<main>
-  <div class="chart-card">
-    <h2>Participation Rate by State & Territory</h2>
-    <p class="subtitle">
-      Percentage of Australians aged 15+ who participated in sport or physical
-      activity at least once in the past 12 months. Hover over each state for details.
+<!-- ══════════════ SECTION 1: WHERE ══════════════ -->
+<div class="section-header">
+  <h2>Where are Australians most active?</h2>
+  <p>Participation rates vary significantly across states and territories.</p>
+</div>
+
+<div class="story-block">
+  <div class="story-text">
+    <h3>The ACT leads the nation — the NT lags behind</h3>
+    <p>
+      The Australian Capital Territory records the highest participation rate at
+      <strong>72.1%</strong> — driven by its younger, highly educated, and
+      public-sector-employed population with easy access to parks and facilities.
     </p>
+    <p>
+      The Northern Territory sits at the other end at <strong>54.7%</strong>,
+      reflecting geographic isolation, infrastructure gaps, and a different
+      demographic profile.
+    </p>
+    <p>
+      Western Australia (<strong>67.9%</strong>) and Queensland
+      (<strong>66.8%</strong>) benefit from warmer climates and outdoor culture,
+      while Tasmania (<strong>58.3%</strong>) faces challenges of remoteness.
+    </p>
+    <div class="highlight">
+      <strong>Key insight:</strong> A 17.4 percentage point gap exists between
+      the most and least active state — suggesting that where you live
+      significantly shapes how active you are.
+    </div>
+  </div>
+  <div class="story-chart">
+    <div class="chart-title">Fig 1 — Participation Rate by State & Territory (%)</div>
     <div id="chart1"></div>
   </div>
-</main>
+</div>
 
-<footer>FIT2179 Data Visualisation 2 · Monash University · 2026</footer>
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 2: WHAT ══════════════ -->
+<div class="section-header">
+  <h2>What do Australians play?</h2>
+  <p>Australia's favourite activities — ranked by total participants.</p>
+</div>
+
+<div class="story-block reverse">
+  <div class="story-chart">
+    <div class="chart-title">Fig 2 — Top 20 Sports & Activities by Participants</div>
+    <div id="chart2"></div>
+  </div>
+  <div class="story-text">
+    <h3>Walking is the undisputed #1 — by a huge margin</h3>
+    <p>
+      With over <strong>6.8 million participants</strong>, walking dwarfs every
+      other activity. It requires no equipment, no club membership, and no
+      specific skill — making it universally accessible.
+    </p>
+    <p>
+      The top 5 are dominated by individual, non-competitive activities:
+      walking, swimming, gym/fitness, cycling, and running. Organised team
+      sports like AFL, netball, and cricket appear much further down.
+    </p>
+    <p>
+      This reflects a broader national shift toward <em>informal, flexible</em>
+      physical activity over structured sport — a trend accelerated post-COVID.
+    </p>
+    <div class="highlight">
+      <strong>Key insight:</strong> The top 5 activities account for nearly
+      <strong>60%</strong> of all participations — and none of them require
+      a team or a competition.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SECTION 3: WHO ══════════════ -->
+<div class="section-header">
+  <h2>Who plays what — and at what age?</h2>
+  <p>Different sports attract vastly different age profiles.</p>
+</div>
+
+<div class="story-block">
+  <div class="story-text">
+    <h3>Age shapes sport choices dramatically</h3>
+    <p>
+      The heatmap reveals clear generational patterns. <strong>Gym & fitness</strong>
+      peaks strongly among 15–24 year-olds (48%) and declines sharply with age.
+      <strong>Walking</strong> shows the opposite — participation grows steadily,
+      peaking at 74% for those 65+.
+    </p>
+    <p>
+      <strong>AFL and Netball</strong> are largely youth sports — participation
+      collapses after age 35. Meanwhile <strong>Golf</strong> is the rare sport
+      that grows more popular with age, peaking in the 65+ group.
+    </p>
+    <p>
+      <strong>Running/Jogging</strong> shows a sharp inverted-V, peaking in the
+      25–34 bracket and declining quickly — reflecting the physical toll of
+      high-impact exercise over time.
+    </p>
+    <div class="highlight">
+      <strong>Key insight:</strong> Designing sport programs that retain
+      participants as they age requires fundamentally different activities
+      for different life stages.
+    </div>
+  </div>
+  <div class="story-chart">
+    <div class="chart-title">Fig 3 — Participation Rate (%) by Sport × Age Group</div>
+    <div id="chart3"></div>
+  </div>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <p>FIT2179 Data Visualisation 2 &nbsp;·&nbsp; Monash University &nbsp;·&nbsp; 2026</p>
+  <p style="margin-top:6px">Data source: AusPlay Survey 2023–24, Australian Sports Commission &nbsp;·&nbsp; All participation figures are estimates</p>
+</footer>
 
 <script>
+/* ══ DATA ══ */
 const stateData = [
   { "state": "New South Wales",              "abbr": "NSW", "rate": 63.2, "participants": 5012000, "pop": 7928000 },
   { "state": "Victoria",                     "abbr": "VIC", "rate": 65.1, "participants": 4238000, "pop": 6511000 },
@@ -53,59 +341,33 @@ const stateData = [
   { "state": "Australian Capital Territory", "abbr": "ACT", "rate": 72.1, "participants":  305000, "pop":  423000 }
 ];
 
+/* ══ CHART 1: Choropleth ══ */
 const chart1 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 460,
+  "width": 540, "height": 360,
   "projection": { "type": "mercator" },
   "layer": [
     {
-      "data": {
-        "url": "data/aus_states.topojson",
-        "format": { "type": "json", "property": "features" }
-      },
+      "data": { "url": "data/aus_states.topojson", "format": { "type": "json", "property": "features" } },
       "mark": { "type": "geoshape", "fill": "#d0dde8", "stroke": "white", "strokeWidth": 1 }
     },
     {
-      "data": {
-        "url": "data/aus_states.topojson",
-        "format": { "type": "json", "property": "features" }
-      },
+      "data": { "url": "data/aus_states.topojson", "format": { "type": "json", "property": "features" } },
       "transform": [
-        {
-          "lookup": "properties.STATE_NAME",
-          "from": {
-            "data": { "values": stateData },
-            "key": "state",
-            "fields": ["abbr", "rate", "participants", "pop"]
-          }
-        },
+        { "lookup": "properties.STATE_NAME", "from": { "data": { "values": stateData }, "key": "state", "fields": ["abbr","rate","participants","pop"] } },
         { "filter": "datum.rate != null" }
       ],
       "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 1.5 },
       "encoding": {
         "color": {
-          "field": "rate",
-          "type": "quantitative",
-          "title": "Participation (%)",
-          "scale": {
-            "type": "threshold",
-            "domain": [57, 62, 65, 68],
-            "range": ["#c6dbef", "#9ecae1", "#6baed6", "#2b8cbe", "#08519c"]
-          },
-          "legend": {
-            "orient": "bottom-right",
-            "labelExpr": "datum.label + '%'",
-            "titleFontSize": 12,
-            "labelFontSize": 11
-          }
+          "field": "rate", "type": "quantitative", "title": "Rate (%)",
+          "scale": { "type": "threshold", "domain": [57,62,65,68], "range": ["#c6dbef","#9ecae1","#6baed6","#2b8cbe","#08519c"] },
+          "legend": { "orient": "bottom-right", "labelExpr": "datum.label + '%'" }
         },
         "tooltip": [
-          { "field": "properties.STATE_NAME", "type": "nominal",      "title": "State / Territory"      },
-          { "field": "abbr",                  "type": "nominal",      "title": "Code"                   },
-          { "field": "rate",                  "type": "quantitative", "title": "Participation Rate (%)", "format": ".1f" },
-          { "field": "participants",          "type": "quantitative", "title": "Est. Participants",      "format": ","   },
-          { "field": "pop",                   "type": "quantitative", "title": "Population 15+",         "format": ","   }
+          { "field": "properties.STATE_NAME", "type": "nominal", "title": "State" },
+          { "field": "rate", "type": "quantitative", "title": "Rate (%)", "format": ".1f" },
+          { "field": "participants", "type": "quantitative", "title": "Participants", "format": "," }
         ]
       }
     }
@@ -113,9 +375,69 @@ const chart1 = {
   "config": { "view": { "stroke": null }, "background": "white" }
 };
 
-vegaEmbed('#chart1', chart1, { actions: false, renderer: 'svg' })
-  .then(() => console.log("Chart 1 OK ✅"))
-  .catch(err => console.error("Chart 1 error:", err));
+/* ══ CHART 2: Top 20 Bar ══ */
+const chart2 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 380, "height": 480,
+  "data": { "values": [
+    {"sport":"Walking","n":6821000},{"sport":"Swimming","n":3862000},
+    {"sport":"Gym/Fitness","n":3654000},{"sport":"Cycling","n":2841000},
+    {"sport":"Running/Jogging","n":2634000},{"sport":"Golf","n":1821000},
+    {"sport":"Tennis","n":1654000},{"sport":"Football (Soccer)","n":1432000},
+    {"sport":"Yoga/Pilates","n":1398000},{"sport":"AFL","n":1187000},
+    {"sport":"Netball","n":1043000},{"sport":"Basketball","n":987000},
+    {"sport":"Cricket","n":921000},{"sport":"Bushwalking","n":876000},
+    {"sport":"Surfing","n":743000},{"sport":"Dance","n":698000},
+    {"sport":"Martial Arts","n":612000},{"sport":"Rugby League","n":589000},
+    {"sport":"Lawn Bowls","n":521000},{"sport":"Volleyball","n":487000}
+  ]},
+  "mark": { "type": "bar", "cornerRadiusEnd": 4 },
+  "encoding": {
+    "y": { "field": "sport", "type": "nominal", "sort": "-x", "title": null, "axis": { "labelFontSize": 11 } },
+    "x": { "field": "n", "type": "quantitative", "title": "Participants", "axis": { "format": ",.0f", "labelFontSize": 10 } },
+    "color": { "field": "n", "type": "quantitative", "scale": { "scheme": "blues" }, "legend": null },
+    "tooltip": [
+      { "field": "sport", "type": "nominal", "title": "Sport" },
+      { "field": "n", "type": "quantitative", "title": "Participants", "format": "," }
+    ]
+  },
+  "config": { "view": { "stroke": null }, "background": "white" }
+};
+
+/* ══ CHART 3: Heatmap ══ */
+const chart3 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 420, "height": 320,
+  "data": { "values": [
+    {"sport":"Walking","age":"15–24","rate":38},{"sport":"Walking","age":"25–34","rate":52},{"sport":"Walking","age":"35–44","rate":61},{"sport":"Walking","age":"45–54","rate":67},{"sport":"Walking","age":"55–64","rate":72},{"sport":"Walking","age":"65+","rate":74},
+    {"sport":"Swimming","age":"15–24","rate":31},{"sport":"Swimming","age":"25–34","rate":28},{"sport":"Swimming","age":"35–44","rate":30},{"sport":"Swimming","age":"45–54","rate":27},{"sport":"Swimming","age":"55–64","rate":25},{"sport":"Swimming","age":"65+","rate":22},
+    {"sport":"Gym/Fitness","age":"15–24","rate":48},{"sport":"Gym/Fitness","age":"25–34","rate":44},{"sport":"Gym/Fitness","age":"35–44","rate":36},{"sport":"Gym/Fitness","age":"45–54","rate":28},{"sport":"Gym/Fitness","age":"55–64","rate":19},{"sport":"Gym/Fitness","age":"65+","rate":12},
+    {"sport":"Cycling","age":"15–24","rate":18},{"sport":"Cycling","age":"25–34","rate":22},{"sport":"Cycling","age":"35–44","rate":25},{"sport":"Cycling","age":"45–54","rate":24},{"sport":"Cycling","age":"55–64","rate":21},{"sport":"Cycling","age":"65+","rate":16},
+    {"sport":"Running/Jogging","age":"15–24","rate":29},{"sport":"Running/Jogging","age":"25–34","rate":32},{"sport":"Running/Jogging","age":"35–44","rate":27},{"sport":"Running/Jogging","age":"45–54","rate":21},{"sport":"Running/Jogging","age":"55–64","rate":14},{"sport":"Running/Jogging","age":"65+","rate":8},
+    {"sport":"Golf","age":"15–24","rate":7},{"sport":"Golf","age":"25–34","rate":10},{"sport":"Golf","age":"35–44","rate":14},{"sport":"Golf","age":"45–54","rate":18},{"sport":"Golf","age":"55–64","rate":22},{"sport":"Golf","age":"65+","rate":24},
+    {"sport":"Tennis","age":"15–24","rate":16},{"sport":"Tennis","age":"25–34","rate":15},{"sport":"Tennis","age":"35–44","rate":14},{"sport":"Tennis","age":"45–54","rate":13},{"sport":"Tennis","age":"55–64","rate":11},{"sport":"Tennis","age":"65+","rate":9},
+    {"sport":"Yoga/Pilates","age":"15–24","rate":14},{"sport":"Yoga/Pilates","age":"25–34","rate":18},{"sport":"Yoga/Pilates","age":"35–44","rate":16},{"sport":"Yoga/Pilates","age":"45–54","rate":13},{"sport":"Yoga/Pilates","age":"55–64","rate":11},{"sport":"Yoga/Pilates","age":"65+","rate":9},
+    {"sport":"AFL","age":"15–24","rate":18},{"sport":"AFL","age":"25–34","rate":12},{"sport":"AFL","age":"35–44","rate":8},{"sport":"AFL","age":"45–54","rate":5},{"sport":"AFL","age":"55–64","rate":3},{"sport":"AFL","age":"65+","rate":2},
+    {"sport":"Netball","age":"15–24","rate":14},{"sport":"Netball","age":"25–34","rate":11},{"sport":"Netball","age":"35–44","rate":8},{"sport":"Netball","age":"45–54","rate":4},{"sport":"Netball","age":"55–64","rate":2},{"sport":"Netball","age":"65+","rate":1}
+  ]},
+  "mark": { "type": "rect", "cornerRadius": 3 },
+  "encoding": {
+    "y": { "field": "sport", "type": "nominal", "title": null, "sort": ["Walking","Gym/Fitness","Running/Jogging","Swimming","Cycling","Tennis","Yoga/Pilates","Golf","AFL","Netball"], "axis": { "labelFontSize": 12 } },
+    "x": { "field": "age", "type": "ordinal", "title": "Age Group", "sort": ["15–24","25–34","35–44","45–54","55–64","65+"], "axis": { "labelFontSize": 12 } },
+    "color": { "field": "rate", "type": "quantitative", "title": "Rate (%)", "scale": { "scheme": "blues" } },
+    "tooltip": [
+      { "field": "sport", "type": "nominal", "title": "Sport" },
+      { "field": "age", "type": "ordinal", "title": "Age Group" },
+      { "field": "rate", "type": "quantitative", "title": "Participation Rate (%)" }
+    ]
+  },
+  "config": { "view": { "stroke": null }, "background": "white" }
+};
+
+/* ══ EMBED ══ */
+vegaEmbed('#chart1', chart1, {actions:false}).then(()=>console.log("C1 ✅")).catch(console.error);
+vegaEmbed('#chart2', chart2, {actions:false}).then(()=>console.log("C2 ✅")).catch(console.error);
+vegaEmbed('#chart3', chart3, {actions:false}).then(()=>console.log("C3 ✅")).catch(console.error);
 </script>
 </body>
 </html>
