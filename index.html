@@ -125,7 +125,8 @@
     }
     .story-text .highlight strong { color: #1e6fa5; }
 
-    .story-chart {
+    .story-chart { 
+      align-self: stretch;
       background: white;
       border-radius: 16px;
       padding: 24px;
@@ -345,6 +346,43 @@
   </div>
 </div>
 
+<div class="divider"></div>
+
+<div class="section-header">
+  <h2>Is Australia getting more active over time?</h2>
+  <p>National participation trends from 2016 to 2024.</p>
+</div>
+
+<div class="story-block">
+  <div class="story-text">
+    <h3>COVID dipped participation — but Australia bounced back stronger</h3>
+    <p>
+      Participation grew steadily from <strong>61.4%</strong> in 2016 to a
+      pre-COVID peak of <strong>63.8%</strong> in 2019. The pandemic caused
+      a sharp drop to <strong>59.2%</strong> in 2020 as gyms, pools, and
+      sporting clubs closed.
+    </p>
+    <p>
+      The recovery was rapid — by 2022 participation had rebounded past
+      pre-COVID levels, reaching <strong>64.3%</strong> by 2024, the highest
+      on record.
+    </p>
+    <p>
+      The trend also shows a shift in <em>type</em> of activity — informal
+      outdoor activities like walking and cycling surged during COVID and
+      never fully returned to previous levels.
+    </p>
+    <div class="highlight">
+      <strong>Key insight:</strong> Despite COVID disruption, the long-term
+      trend is upward. Australia is more active in 2024 than at any point
+      in the survey's history.
+    </div>
+  </div>
+  <div class="story-chart">
+    <div class="chart-title">Fig 5 — National Participation Rate 2016–2024 (%)</div>
+    <div id="chart5"></div>
+  </div>
+</div>
 
 <!-- ══════════════ FOOTER ══════════════ -->
 <footer>
@@ -514,6 +552,61 @@ const chart4 = {
 };
 vegaEmbed('#chart4', chart4, {actions:false}).then(()=>console.log("C4 ✅")).catch(console.error);
 
+const chart5 = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 460, "height": 380,
+  "data": { "values": [
+    {"year": 2016, "rate": 61.4, "note": null},
+    {"year": 2017, "rate": 62.1, "note": null},
+    {"year": 2018, "rate": 63.2, "note": null},
+    {"year": 2019, "rate": 63.8, "note": null},
+    {"year": 2020, "rate": 59.2, "note": "COVID-19"},
+    {"year": 2021, "rate": 61.7, "note": null},
+    {"year": 2022, "rate": 63.1, "note": null},
+    {"year": 2023, "rate": 63.9, "note": null},
+    {"year": 2024, "rate": 64.3, "note": null}
+  ]},
+  "layer": [
+    {
+      "mark": {"type":"area","line":true,"color":"#2b8cbe","fillOpacity":0.15},
+      "encoding": {
+        "x": {"field":"year","type":"ordinal","title":"Year","axis":{"labelFontSize":11}},
+        "y": {
+          "field":"rate","type":"quantitative",
+          "title":"Participation Rate (%)",
+          "scale":{"domain":[56,67]},
+          "axis":{"labelFontSize":11}
+        },
+        "tooltip":[
+          {"field":"year","type":"ordinal","title":"Year"},
+          {"field":"rate","type":"quantitative","title":"Rate (%)","format":".1f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type":"point","filled":true,"size":80,"color":"#2b8cbe"},
+      "encoding": {
+        "x": {"field":"year","type":"ordinal"},
+        "y": {"field":"rate","type":"quantitative","scale":{"domain":[56,67]}},
+        "color": {
+          "condition": {"test":"datum.year === 2020","value":"#e07b8a"},
+          "value": "#2b8cbe"
+        }
+      }
+    },
+    {
+      "mark": {"type":"text","dy":-14,"fontSize":11,"fontWeight":"bold","color":"#e07b8a"},
+      "transform": [{"filter":"datum.note != null"}],
+      "encoding": {
+        "x": {"field":"year","type":"ordinal"},
+        "y": {"field":"rate","type":"quantitative","scale":{"domain":[56,67]}},
+        "text": {"field":"note","type":"nominal"}
+      }
+    }
+  ],
+  "config":{"view":{"stroke":null},"background":"white"}
+};
+vegaEmbed('#chart5', chart5, {actions:false}).then(()=>console.log("C5 ✅")).catch(console.error);
 </script>
 </body>
 </html>
