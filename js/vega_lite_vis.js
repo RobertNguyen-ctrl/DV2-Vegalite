@@ -11,7 +11,8 @@ const stateData = [
 
 const chart1 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":380,"height":240,
+  "autosize":"fit",
+  "width":500,"height":400,
   "projection":{"type":"mercator"},
   "layer":[
     {"data":{"url":"data/aus_states.topojson","format":{"type":"json","property":"features"}},
@@ -24,12 +25,12 @@ const chart1 = {
        "tooltip":[{"field":"properties.STATE_NAME","type":"nominal","title":"State"},{"field":"rate","type":"quantitative","title":"Rate (%)","format":".1f"},{"field":"participants","type":"quantitative","title":"Participants","format":","}]
      }}
   ],
-  "config":{"view":{"stroke":null},"background":"white"}
+  "config":{"view":{"stroke":null},"background":"white","padding":0}
 };
 
 const chart2 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":340,"height":300,
+  "width":800,"height":400,
   "data":{"values":[
     {"sport":"Walking","n":6821000},{"sport":"Swimming","n":3862000},{"sport":"Gym/Fitness","n":3654000},
     {"sport":"Cycling","n":2841000},{"sport":"Running/Jogging","n":2634000},{"sport":"Golf","n":1821000},
@@ -51,7 +52,7 @@ const chart2 = {
 
 const chart3 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":340,"height":220,
+  "width":470,"height":270,
   "data":{"values":[
     {"sport":"Walking","age":"15–24","rate":38},{"sport":"Walking","age":"25–34","rate":52},{"sport":"Walking","age":"35–44","rate":61},{"sport":"Walking","age":"45–54","rate":67},{"sport":"Walking","age":"55–64","rate":72},{"sport":"Walking","age":"65+","rate":74},
     {"sport":"Swimming","age":"15–24","rate":31},{"sport":"Swimming","age":"25–34","rate":28},{"sport":"Swimming","age":"35–44","rate":30},{"sport":"Swimming","age":"45–54","rate":27},{"sport":"Swimming","age":"55–64","rate":25},{"sport":"Swimming","age":"65+","rate":22},
@@ -66,8 +67,8 @@ const chart3 = {
   ]},
   "mark":{"type":"rect","cornerRadius":2},
   "encoding":{
-    "y":{"field":"sport","type":"nominal","title":null,"sort":["Walking","Gym/Fitness","Running","Swimming","Cycling","Tennis","Yoga","Golf","AFL","Netball"],"axis":{"labelFontSize":10}},
-    "x":{"field":"age","type":"ordinal","title":"Age Group","sort":["15–24","25–34","35–44","45–54","55–64","65+"],"axis":{"labelFontSize":10}},
+    "y":{"field":"sport","type":"nominal","title":null,"sort":["Walking","Gym/Fitness","Running","Swimming","Cycling","Tennis","Yoga","Golf","AFL","Netball"],"axis":{"labelFontSize":12}},
+    "x":{"field":"age","type":"ordinal","title":"Age Group","sort":["15–24","25–34","35–44","45–54","55–64","65+"],"axis":{"labelFontSize":12, "labelAngle": -0}},
     "color":{"field":"rate","type":"quantitative","title":"Rate (%)","scale":{"scheme":"blues"}},
     "tooltip":[{"field":"sport","type":"nominal","title":"Sport"},{"field":"age","type":"ordinal","title":"Age"},{"field":"rate","type":"quantitative","title":"Rate (%)"}]
   },
@@ -76,7 +77,7 @@ const chart3 = {
 
 const chart4 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":340,"height":240,
+  "width":520,"height":300,
   "data":{"values":[
     {"sport":"Rugby League","gap":38},{"sport":"Cricket","gap":34},{"sport":"AFL","gap":28},
     {"sport":"Rugby Union","gap":24},{"sport":"Golf","gap":18},{"sport":"Basketball","gap":8},
@@ -100,7 +101,7 @@ const chart4 = {
 
 const chart5 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":380,"height":300,
+  "width":500,"height":350,
   "data":{"values":[
     {"year":2016,"rate":61.4,"note":null},{"year":2017,"rate":62.1,"note":null},
     {"year":2018,"rate":63.2,"note":null},{"year":2019,"rate":63.8,"note":null},
@@ -140,7 +141,7 @@ const chart5 = {
 
 const chart6 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":380,"height":220,
+  "width":800,"height":220,
   "data":{"values":[
     {"sport":"Walking","type":"Informal","pct":94},{"sport":"Walking","type":"Organised","pct":6},
     {"sport":"Running","type":"Informal","pct":81},{"sport":"Running","type":"Organised","pct":19},
@@ -174,7 +175,7 @@ vegaEmbed('#chart6',chart6,{actions:false}).then(()=>console.log("C6 ✅")).catc
 
 const chart7 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":340,"height":220,
+  "width":350,"height":230,
   "data":{"values":[
     {"reason":"Physical health",    "pct":84},
     {"reason":"Mental wellbeing",   "pct":71},
@@ -193,7 +194,7 @@ const chart7 = {
        "x":{"field":"pct","type":"quantitative","title":"% of participants","axis":{"labelFontSize":9}},
        "x2":{"datum":0}
      }},
-    {"mark":{"type":"point","filled":true,"size":90,"color":"#2b8cbe"},
+    {"mark":{"type":"point","filled":true,"size":100,"color":"#2b8cbe"},
      "encoding":{
        "y":{"field":"reason","type":"nominal","sort":"-x","title":null},
        "x":{"field":"pct","type":"quantitative"},
@@ -208,7 +209,7 @@ const chart7 = {
 
 const chart8 = {
   "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-  "width":340,"height":220,
+  "width":350,"height":230,
   "data":{"values":[
     {"barrier":"Not enough time",     "pct":43},
     {"barrier":"Cost too high",       "pct":31},
@@ -227,7 +228,7 @@ const chart8 = {
        "x":{"field":"pct","type":"quantitative","title":"% of inactive Australians","axis":{"labelFontSize":9}},
        "x2":{"datum":0}
      }},
-    {"mark":{"type":"point","filled":true,"size":90,"color":"#e07b8a"},
+    {"mark":{"type":"point","filled":true,"size":100,"color":"#e07b8a"},
      "encoding":{
        "y":{"field":"barrier","type":"nominal","sort":"-x","title":null},
        "x":{"field":"pct","type":"quantitative"},

@@ -8,6 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #1a1a2e; line-height: 1.7; }
@@ -60,7 +61,18 @@
     /* TEXT COLUMN */
     .s-text h3 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: #0d2137; margin-bottom: 12px; line-height: 1.4; }
     .s-text p { color: #444; font-size: 0.93rem; margin-bottom: 10px; }
-    .s-text .highlight { background: #e8f4fd; border-left: 4px solid #1e6fa5; padding: 12px 16px; border-radius: 0 8px 8px 0; font-size: 0.88rem; color: #1a3a5c; margin-top: 14px; }
+    .s-text .highlight { 
+      background: #e8f4fd; 
+      border-left: 4px solid #1e6fa5; 
+      padding: 12px 16px; 
+      border-radius: 0 8px 8px 0; 
+      font-size: 0.88rem; 
+      color: #1a3a5c; 
+      margin-top: 14px;
+      width: 100%;
+      box-sizing: border-box;
+      display: block;
+    }
     .s-text .hihghlight strong { color: #1e6fa5; }
 
     /* CHARTS COLUMN */
@@ -96,27 +108,38 @@
   <h2>Where & What — Location and Sport Choices</h2>
   <p>Participation rates by state, and Australia's most popular activities.</p>
 </div>
+
+<!-- Fig 1 + Text: Side by side -->
 <div class="section-body">
   <div class="s-text">
     <h3>ACT leads the nation — Walking dominates everywhere</h3>
     <p>The <strong>ACT (72.1%)</strong> is Australia's most active territory, nearly 18 points above the <strong>NT (54.7%)</strong>. This gap reflects deep structural differences: ACT has Australia's highest median income, most educated workforce, and best access to green spaces and cycling infrastructure.</p>
     <p>Nationally, <strong>Walking (6.8M)</strong> has nearly double the participants of Swimming (3.9M) — the #2 sport. The top 5 activities are all individual and require no registration, no fixed schedule, and minimal cost.</p>
     <p>Organised team sports like AFL, Netball, and Cricket don't appear until positions 10–13 — a dramatic shift from how Australians thought about sport just 20 years ago.</p>
-    <div class="highlight"><strong>Key insight:</strong> Geography and socioeconomics are powerful predictors of activity. States with warmer climates, higher incomes, and better infrastructure consistently outperform the national average.</div>
   </div>
   <div class="s-charts">
     <div class="chart-card">
       <div class="fig-label">Fig 1 — Participation Rate by State (%)</div>
       <div id="chart1"></div>
     </div>
-    <div class="chart-card">
+  </div>
+</div>
+
+<!-- Fig 2: Full width -->
+<div class="section-body" style="grid-template-columns: 1fr;">
+  <div class="s-charts" style="width: 100%;">
+    <div class="chart-card" style="width: 100%; min-width: 100%;">
       <div class="fig-label">Fig 2 — Top 20 Sports by Participants</div>
       <div id="chart2"></div>
     </div>
   </div>
 </div>
-
+<div class="highlight" style="max-width: 1020px; margin: 25px auto 0; padding: 0 40px;">
+  <strong>Key insight:</strong> Geography and socioeconomics are powerful predictors of activity. States with warmer climates, higher incomes, and better infrastructure consistently outperform the national average.
+</div>
 <div class="divider"></div>
+
+
 
 <!-- ══ SECTION 2 ══ -->
 <div class="section-header">
@@ -145,31 +168,41 @@
 
 <div class="divider"></div>
 
+
 <!-- ══ SECTION 3 ══ -->
 <div class="section-header">
   <h2>Trends & Behaviour — How participation is changing</h2>
   <p>Long-term growth, COVID impact, and the shift from organised to informal sport.</p>
 </div>
+
 <div class="section-body">
   <div class="s-text">
     <h3>COVID reshaped Australia's activity habits — permanently</h3>
     <p>The 2020 crash to <strong>59.2%</strong> was the sharpest single-year decline on record. But the recovery wasn't simply a return to normal — it was a <em>restructuring</em>. Activities that could be done alone outdoors (walking, cycling, running) surged and never came back down.</p>
     <p>By 2024, Australia hit a record <strong>64.3%</strong> — but this growth is concentrated in informal activity. The stacked bar shows Walking (94% informal) and Running (81%) are essentially ungoverned activities with no club, no fixture, no membership fee.</p>
     <p>This creates a structural crisis for sporting bodies: participation is up, but affiliated membership — and therefore revenue and influence — is stagnating or declining for most traditional sports.</p>
-    <div class="highlight"><strong>Key insight:</strong> COVID didn't kill Australian sport — it accelerated a trend already underway. The future belongs to flexible, low-cost, individual activities. Clubs that don't adapt risk irrelevance.</div>
   </div>
-  <div class="s-charts">
+  <div class="s-charts" style="width: auto; align-items: flex-start;">
     <div class="chart-card">
       <div class="fig-label">Fig 5 — National Participation Rate 2016–2024</div>
       <div id="chart5"></div>
     </div>
-    <div class="chart-card">
+  </div>
+</div>
+
+<div class="highlight" style="max-width: 1100px; margin: 20px auto 0; padding: 0 40px;">
+  <strong>Key insight:</strong> COVID didn't kill Australian sport — it accelerated a trend already underway. The future belongs to flexible, low-cost, individual activities. Clubs that don't adapt risk irrelevance.
+</div>
+
+<!-- Fig 6: Full width -->
+<div class="section-body" style="grid-template-columns: 1fr;">
+  <div class="s-charts" style="width: 100%;">
+    <div class="chart-card" style="padding: 20px 20px; width: 100%; min-width: 100%;">
       <div class="fig-label">Fig 6 — Organised vs Informal by Sport</div>
       <div id="chart6"></div>
     </div>
   </div>
 </div>
-
 
 <div class="divider"></div>
 
@@ -219,11 +252,11 @@
     </div>
   </div>
   <div class="s-text">
-    <h3>Padel & Pickleball are rewriting the sports landscape</h3>
-    <p><strong>Padel (+41%)</strong> and <strong>Pickleball (+38%)</strong> are growing faster than any traditional sport in Australian history. Both are social, low-impact, easy to learn, and playable in smaller spaces — ticking every box that modern participants demand.</p>
-    <p>The decline of <strong>Cricket (−8%)</strong> and <strong>Lawn Bowls (−11%)</strong> reflects an aging, non-renewing participant base. Both sports have failed to attract under-35s at scale, and their summer/weekly scheduling conflicts with increasingly fragmented leisure time.</p>
-    <p>The age-group trend chart shows the most important long-term story: <strong>65+ participation has grown by 8 percentage points since 2016</strong> — the largest gain of any group. Australia's aging population is becoming more active, not less. Youth (15–24) remains flat, suggesting significant untapped potential.</p>
-    <div class="highlight"><strong>Key insight:</strong> The next decade of Australian sport will be defined by two groups: emerging social racket sports capturing 25–45 year olds, and active-ageing programs for the 65+ boom. Traditional sports associations that fail to evolve risk irrelevance within a generation.</div>
+  <h3>Padel & Pickleball are rewriting the sports landscape</h3>
+  <p><strong>Padel (+41%)</strong> and <strong>Pickleball (+38%)</strong> are growing faster than any traditional sport in Australian history. Both are social, low-impact, easy to learn, and playable in smaller spaces — ticking every box that modern participants demand.</p>
+  <p>The decline of <strong>Cricket (−8%)</strong> and <strong>Lawn Bowls (−11%)</strong> reflects an aging, non-renewing participant base. Both sports have failed to attract under-35s at scale, and their summer/weekly scheduling conflicts with increasingly fragmented leisure time.</p>
+  <p>The age-group trend chart shows the most important long-term story: <strong>65+ participation has grown by 8 percentage points since 2016</strong> — the largest gain of any group. Australia's aging population is becoming more active, not less. Youth (15–24) remains flat, suggesting significant untapped potential.</p>
+  <div class="highlight"><strong>Key insight:</strong> The next decade of Australian sport will be defined by two groups: emerging social racket sports capturing 25–45 year olds, and active-ageing programs for the 65+ boom. Traditional sports associations that fail to evolve risk irrelevance within a generation.</div>
     </div>
   </div>
 </div>
