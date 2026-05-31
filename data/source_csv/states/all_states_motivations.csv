@@ -1,0 +1,129 @@
+state,motivation,all_pct,male_pct,female_pct
+ACT,Physical health/fitness,73.57,71.08,76.58
+ACT,Fun/enjoyment,61.37,63.92,58.41
+ACT,Weight management,60.11,56.93,63.85
+ACT,Outdoors/nature,56.69,53.46,59.81
+ACT,Social reasons,46.95,46.84,46.84
+ACT,Mental health,42.31,38.32,46.59
+ACT,Sense of achievement,30.82,30.85,31.01
+ACT,Hobby,28.21,31.3,24.22
+ACT,Walk the dog,19.59,15.12,23.96
+ACT,Training,20.15,25.94,14.46
+ACT,Learn new skill,14.89,11.32,18.44
+ACT,Competition,12.74,17.6,7.39
+ACT,Way of getting around,17.02,19.12,14.73
+ACT,Physio/rehab,13.1,10.71,15.23
+ACT,Role model,9.64,9.85,9.27
+ACT,Professional,3.36,3.79,3.02
+NSW,Physical health/fitness,65.06,62.53,67.67
+NSW,Fun/enjoyment,57.96,58.65,57.3
+NSW,Weight management,51.65,48.06,55.33
+NSW,Outdoors/nature,51.35,48.47,54.27
+NSW,Social reasons,44.36,43.52,45.34
+NSW,Mental health,36.56,32.52,40.58
+NSW,Sense of achievement,30.05,30.12,29.97
+NSW,Hobby,28.68,31.63,25.68
+NSW,Walk the dog,18.0,13.78,22.22
+NSW,Training,20.72,24.93,16.53
+NSW,Learn new skill,15.23,14.72,15.67
+NSW,Competition,15.09,19.69,10.52
+NSW,Way of getting around,12.36,12.06,12.52
+NSW,Physio/rehab,11.44,11.23,11.64
+NSW,Role model,9.66,10.67,8.66
+NSW,Professional,4.34,5.0,3.67
+NT,Physical health/fitness,68.94,68.62,69.2
+NT,Fun/enjoyment,60.85,62.16,59.78
+NT,Weight management,60.63,55.95,64.47
+NT,Outdoors/nature,53.33,44.29,60.77
+NT,Social reasons,50.77,50.72,50.82
+NT,Mental health,44.97,36.49,51.94
+NT,Sense of achievement,35.42,32.16,38.11
+NT,Hobby,33.49,34.01,33.06
+NT,Walk the dog,21.89,17.33,25.63
+NT,Training,22.4,25.31,20.01
+NT,Learn new skill,15.9,13.89,17.56
+NT,Competition,16.09,22.11,11.13
+NT,Way of getting around,14.05,10.44,17.02
+NT,Physio/rehab,14.72,14.56,14.85
+NT,Role model,14.2,15.98,12.73
+NT,Professional,6.28,6.3,6.26
+QLD,Physical health/fitness,66.01,63.54,68.48
+QLD,Fun/enjoyment,58.68,58.88,58.51
+QLD,Weight management,53.09,51.39,54.81
+QLD,Outdoors/nature,50.82,47.54,54.04
+QLD,Social reasons,41.39,39.89,42.88
+QLD,Mental health,37.05,33.6,40.17
+QLD,Sense of achievement,29.54,28.99,30.04
+QLD,Hobby,27.1,29.87,24.25
+QLD,Walk the dog,20.66,16.48,24.82
+QLD,Training,19.98,25.42,14.68
+QLD,Learn new skill,14.25,13.52,14.85
+QLD,Competition,12.84,17.03,8.79
+QLD,Way of getting around,10.24,9.54,10.89
+QLD,Physio/rehab,11.74,10.89,12.46
+QLD,Role model,9.11,9.63,8.62
+QLD,Professional,4.41,4.68,4.1
+SA,Physical health/fitness,65.47,61.83,69.01
+SA,Fun/enjoyment,55.24,56.65,54.02
+SA,Weight management,53.07,49.36,56.87
+SA,Outdoors/nature,49.8,48.68,50.92
+SA,Social reasons,41.51,41.73,41.36
+SA,Mental health,36.74,32.08,41.14
+SA,Sense of achievement,28.55,27.72,29.53
+SA,Hobby,25.58,30.42,20.71
+SA,Walk the dog,21.02,17.24,24.79
+SA,Training,15.7,20.78,10.93
+SA,Learn new skill,11.86,10.0,13.45
+SA,Competition,13.06,18.06,8.18
+SA,Way of getting around,10.56,9.46,11.57
+SA,Physio/rehab,13.29,12.04,14.37
+SA,Role model,7.43,8.19,6.82
+SA,Professional,4.12,4.75,3.6
+TAS,Physical health/fitness,66.81,64.97,68.47
+TAS,Fun/enjoyment,62.91,64.72,60.89
+TAS,Weight management,53.71,47.26,59.83
+TAS,Outdoors/nature,55.52,50.22,60.61
+TAS,Social reasons,46.94,47.04,46.56
+TAS,Mental health,40.1,35.59,44.21
+TAS,Sense of achievement,34.29,33.23,35.55
+TAS,Hobby,31.39,36.01,26.5
+TAS,Walk the dog,24.47,20.94,27.81
+TAS,Training,18.4,22.84,14.36
+TAS,Learn new skill,13.92,12.08,15.84
+TAS,Competition,15.51,23.25,8.29
+TAS,Way of getting around,11.98,10.68,13.02
+TAS,Physio/rehab,12.09,11.26,13.01
+TAS,Role model,10.16,9.53,10.87
+TAS,Professional,3.45,3.45,3.49
+VIC,Physical health/fitness,63.99,61.2,66.8
+VIC,Fun/enjoyment,58.13,59.26,57.13
+VIC,Weight management,52.06,49.29,54.9
+VIC,Outdoors/nature,49.96,46.04,53.82
+VIC,Social reasons,43.67,42.52,44.85
+VIC,Mental health,36.5,30.82,42.0
+VIC,Sense of achievement,31.26,30.97,31.46
+VIC,Hobby,29.27,32.44,26.2
+VIC,Walk the dog,21.93,17.44,26.31
+VIC,Training,20.19,24.5,16.07
+VIC,Learn new skill,14.52,13.54,15.48
+VIC,Competition,14.22,18.97,9.62
+VIC,Way of getting around,12.88,12.08,13.56
+VIC,Physio/rehab,12.83,10.98,14.62
+VIC,Role model,8.94,9.33,8.62
+VIC,Professional,4.37,5.28,3.45
+WA,Physical health/fitness,65.98,62.2,69.85
+WA,Fun/enjoyment,61.36,61.87,60.84
+WA,Weight management,54.85,51.81,57.74
+WA,Outdoors/nature,51.49,46.46,56.28
+WA,Social reasons,44.87,42.93,46.68
+WA,Mental health,37.55,32.94,42.01
+WA,Sense of achievement,30.46,28.7,32.11
+WA,Hobby,29.71,33.54,25.72
+WA,Walk the dog,22.17,18.51,25.71
+WA,Training,19.84,24.08,15.81
+WA,Learn new skill,14.97,14.46,15.52
+WA,Competition,14.21,19.27,9.24
+WA,Way of getting around,12.96,12.06,13.68
+WA,Physio/rehab,12.1,10.58,13.65
+WA,Role model,10.23,10.61,9.76
+WA,Professional,4.15,4.96,3.39

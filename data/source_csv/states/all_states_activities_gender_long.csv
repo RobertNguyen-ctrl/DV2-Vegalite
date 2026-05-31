@@ -1,0 +1,401 @@
+state,activity,gender,pct
+ACT,Walking (Recreational),Male,47.51
+ACT,Walking (Recreational),Female,66.56
+ACT,Fitness/Gym,Male,35.88
+ACT,Fitness/Gym,Female,45.62
+ACT,Bush walking,Male,20.85
+ACT,Bush walking,Female,28.34
+ACT,Running/jogging,Male,25.79
+ACT,Running/jogging,Female,20.49
+ACT,Swimming,Male,13.88
+ACT,Swimming,Female,20.98
+ACT,Cycling,Male,16.11
+ACT,Cycling,Female,12.25
+ACT,Pilates,Male,1.03
+ACT,Pilates,Female,17.42
+ACT,Football/soccer,Male,7.72
+ACT,Football/soccer,Female,4.23
+ACT,Yoga,Male,2.36
+ACT,Yoga,Female,8.76
+ACT,Basketball,Male,6.73
+ACT,Basketball,Female,1.79
+ACT,Australian football,Male,2.23
+ACT,Australian football,Female,0.53
+ACT,Golf,Male,7.08
+ACT,Golf,Female,1.74
+ACT,Tennis,Male,5.42
+ACT,Tennis,Female,5.02
+ACT,Netball,Male,0.95
+ACT,Netball,Female,2.92
+ACT,Cricket,Male,2.28
+ACT,Cricket,Female,0.6
+ACT,Dancing (recreational),Male,0.28
+ACT,Dancing (recreational),Female,2.57
+ACT,Surfing,Male,1.11
+ACT,Surfing,Female,0.77
+ACT,Table tennis,Male,3.08
+ACT,Table tennis,Female,1.17
+ACT,Volleyball (indoor and outdoor),Male,0.93
+ACT,Volleyball (indoor and outdoor),Female,0.73
+ACT,Weight lifting,Male,2.08
+ACT,Weight lifting,Female,1.89
+ACT,Bowls,Male,0.58
+ACT,Bowls,Female,0.0
+ACT,Badminton,Male,2.67
+ACT,Badminton,Female,2.47
+ACT,Motor cycling,Male,0.52
+ACT,Motor cycling,Female,0.65
+ACT,Underwater sports,Male,0.89
+ACT,Underwater sports,Female,1.81
+ACT,Pickleball/padel,Male,0.87
+ACT,Pickleball/padel,Female,1.22
+NT,Walking (Recreational),Male,35.71
+NT,Walking (Recreational),Female,60.21
+NT,Fitness/Gym,Male,45.86
+NT,Fitness/Gym,Female,43.24
+NT,Bush walking,Male,14.54
+NT,Bush walking,Female,23.17
+NT,Running/jogging,Male,21.3
+NT,Running/jogging,Female,19.34
+NT,Swimming,Male,14.56
+NT,Swimming,Female,24.78
+NT,Cycling,Male,14.34
+NT,Cycling,Female,14.22
+NT,Pilates,Male,0.42
+NT,Pilates,Female,11.69
+NT,Football/soccer,Male,9.06
+NT,Football/soccer,Female,2.07
+NT,Yoga,Male,2.06
+NT,Yoga,Female,13.16
+NT,Basketball,Male,8.81
+NT,Basketball,Female,2.83
+NT,Australian football,Male,6.45
+NT,Australian football,Female,2.02
+NT,Golf,Male,7.04
+NT,Golf,Female,4.07
+NT,Tennis,Male,3.89
+NT,Tennis,Female,3.96
+NT,Netball,Male,0.9
+NT,Netball,Female,4.15
+NT,Cricket,Male,5.61
+NT,Cricket,Female,0.0
+NT,Dancing (recreational),Male,0.51
+NT,Dancing (recreational),Female,1.77
+NT,Surfing,Male,1.3
+NT,Surfing,Female,0.0
+NT,Table tennis,Male,2.8
+NT,Table tennis,Female,1.12
+NT,Volleyball (indoor and outdoor),Male,1.83
+NT,Volleyball (indoor and outdoor),Female,4.03
+NT,Weight lifting,Male,0.83
+NT,Weight lifting,Female,1.43
+NT,Bowls,Male,1.49
+NT,Bowls,Female,0.55
+NT,Badminton,Male,1.23
+NT,Badminton,Female,1.64
+NT,Motor cycling,Male,3.15
+NT,Motor cycling,Female,0.31
+NT,Underwater sports,Male,1.95
+NT,Underwater sports,Female,1.81
+NT,Pickleball/padel,Male,0.43
+NT,Pickleball/padel,Female,0.64
+TAS,Walking (Recreational),Male,42.34
+TAS,Walking (Recreational),Female,63.12
+TAS,Fitness/Gym,Male,27.68
+TAS,Fitness/Gym,Female,32.07
+TAS,Bush walking,Male,24.92
+TAS,Bush walking,Female,27.88
+TAS,Running/jogging,Male,20.62
+TAS,Running/jogging,Female,14.89
+TAS,Swimming,Male,10.64
+TAS,Swimming,Female,18.63
+TAS,Cycling,Male,10.29
+TAS,Cycling,Female,8.26
+TAS,Pilates,Male,1.03
+TAS,Pilates,Female,8.76
+TAS,Football/soccer,Male,6.15
+TAS,Football/soccer,Female,1.56
+TAS,Yoga,Male,1.39
+TAS,Yoga,Female,8.61
+TAS,Basketball,Male,5.13
+TAS,Basketball,Female,1.98
+TAS,Australian football,Male,4.27
+TAS,Australian football,Female,2.19
+TAS,Golf,Male,8.17
+TAS,Golf,Female,1.73
+TAS,Tennis,Male,4.12
+TAS,Tennis,Female,3.05
+TAS,Netball,Male,0.3
+TAS,Netball,Female,3.27
+TAS,Cricket,Male,3.19
+TAS,Cricket,Female,1.42
+TAS,Dancing (recreational),Male,0.46
+TAS,Dancing (recreational),Female,3.8
+TAS,Surfing,Male,2.04
+TAS,Surfing,Female,1.0
+TAS,Table tennis,Male,1.57
+TAS,Table tennis,Female,0.7
+TAS,Volleyball (indoor and outdoor),Male,0.14
+TAS,Volleyball (indoor and outdoor),Female,0.93
+TAS,Weight lifting,Male,1.63
+TAS,Weight lifting,Female,1.39
+TAS,Bowls,Male,3.75
+TAS,Bowls,Female,1.34
+TAS,Badminton,Male,1.05
+TAS,Badminton,Female,1.42
+TAS,Motor cycling,Male,1.98
+TAS,Motor cycling,Female,0.64
+TAS,Underwater sports,Male,1.35
+TAS,Underwater sports,Female,0.83
+TAS,Pickleball/padel,Male,0.92
+TAS,Pickleball/padel,Female,1.54
+NSW,Walking (Recreational),Male,40.35
+NSW,Walking (Recreational),Female,55.97
+NSW,Fitness/Gym,Male,28.17
+NSW,Fitness/Gym,Female,31.12
+NSW,Bush walking,Male,16.05
+NSW,Bush walking,Female,18.48
+NSW,Running/jogging,Male,18.23
+NSW,Running/jogging,Female,13.17
+NSW,Swimming,Male,16.33
+NSW,Swimming,Female,17.33
+NSW,Cycling,Male,8.92
+NSW,Cycling,Female,5.37
+NSW,Pilates,Male,1.03
+NSW,Pilates,Female,10.81
+NSW,Football/soccer,Male,10.94
+NSW,Football/soccer,Female,3.39
+NSW,Yoga,Male,1.45
+NSW,Yoga,Female,8.41
+NSW,Basketball,Male,6.81
+NSW,Basketball,Female,2.34
+NSW,Australian football,Male,1.8
+NSW,Australian football,Female,0.87
+NSW,Golf,Male,8.01
+NSW,Golf,Female,2.0
+NSW,Tennis,Male,6.94
+NSW,Tennis,Female,5.12
+NSW,Netball,Male,0.55
+NSW,Netball,Female,3.47
+NSW,Cricket,Male,4.39
+NSW,Cricket,Female,0.72
+NSW,Dancing (recreational),Male,0.69
+NSW,Dancing (recreational),Female,2.49
+NSW,Surfing,Male,2.11
+NSW,Surfing,Female,1.27
+NSW,Table tennis,Male,2.5
+NSW,Table tennis,Female,1.12
+NSW,Volleyball (indoor and outdoor),Male,1.51
+NSW,Volleyball (indoor and outdoor),Female,1.0
+NSW,Weight lifting,Male,1.51
+NSW,Weight lifting,Female,1.42
+NSW,Bowls,Male,1.26
+NSW,Bowls,Female,0.74
+NSW,Badminton,Male,2.45
+NSW,Badminton,Female,1.52
+NSW,Motor cycling,Male,1.74
+NSW,Motor cycling,Female,0.77
+NSW,Underwater sports,Male,0.8
+NSW,Underwater sports,Female,0.82
+NSW,Pickleball/padel,Male,1.3
+NSW,Pickleball/padel,Female,1.02
+QLD,Walking (Recreational),Male,42.98
+QLD,Walking (Recreational),Female,56.31
+QLD,Fitness/Gym,Male,31.65
+QLD,Fitness/Gym,Female,32.22
+QLD,Bush walking,Male,16.6
+QLD,Bush walking,Female,17.52
+QLD,Running/jogging,Male,18.02
+QLD,Running/jogging,Female,14.11
+QLD,Swimming,Male,15.95
+QLD,Swimming,Female,17.12
+QLD,Cycling,Male,9.6
+QLD,Cycling,Female,6.1
+QLD,Pilates,Male,1.08
+QLD,Pilates,Female,10.09
+QLD,Football/soccer,Male,6.8
+QLD,Football/soccer,Female,1.81
+QLD,Yoga,Male,1.45
+QLD,Yoga,Female,8.33
+QLD,Basketball,Male,5.2
+QLD,Basketball,Female,1.91
+QLD,Australian football,Male,2.04
+QLD,Australian football,Female,0.79
+QLD,Golf,Male,7.13
+QLD,Golf,Female,1.67
+QLD,Tennis,Male,4.88
+QLD,Tennis,Female,3.66
+QLD,Netball,Male,0.48
+QLD,Netball,Female,2.77
+QLD,Cricket,Male,3.39
+QLD,Cricket,Female,0.47
+QLD,Dancing (recreational),Male,0.45
+QLD,Dancing (recreational),Female,2.1
+QLD,Surfing,Male,1.81
+QLD,Surfing,Female,1.02
+QLD,Table tennis,Male,1.52
+QLD,Table tennis,Female,0.77
+QLD,Volleyball (indoor and outdoor),Male,1.83
+QLD,Volleyball (indoor and outdoor),Female,1.16
+QLD,Weight lifting,Male,1.71
+QLD,Weight lifting,Female,1.15
+QLD,Bowls,Male,1.07
+QLD,Bowls,Female,0.65
+QLD,Badminton,Male,1.06
+QLD,Badminton,Female,1.07
+QLD,Motor cycling,Male,1.51
+QLD,Motor cycling,Female,0.56
+QLD,Underwater sports,Male,0.86
+QLD,Underwater sports,Female,0.63
+QLD,Pickleball/padel,Male,1.28
+QLD,Pickleball/padel,Female,0.89
+SA,Walking (Recreational),Male,44.88
+SA,Walking (Recreational),Female,61.45
+SA,Fitness/Gym,Male,26.36
+SA,Fitness/Gym,Female,33.35
+SA,Bush walking,Male,14.83
+SA,Bush walking,Female,17.74
+SA,Running/jogging,Male,17.83
+SA,Running/jogging,Female,11.46
+SA,Swimming,Male,9.52
+SA,Swimming,Female,12.58
+SA,Cycling,Male,10.02
+SA,Cycling,Female,5.87
+SA,Pilates,Male,1.13
+SA,Pilates,Female,11.45
+SA,Football/soccer,Male,7.27
+SA,Football/soccer,Female,1.03
+SA,Yoga,Male,1.15
+SA,Yoga,Female,7.26
+SA,Basketball,Male,5.85
+SA,Basketball,Female,2.53
+SA,Australian football,Male,5.9
+SA,Australian football,Female,1.32
+SA,Golf,Male,7.88
+SA,Golf,Female,1.01
+SA,Tennis,Male,5.84
+SA,Tennis,Female,3.78
+SA,Netball,Male,1.04
+SA,Netball,Female,4.25
+SA,Cricket,Male,4.44
+SA,Cricket,Female,0.82
+SA,Dancing (recreational),Male,0.35
+SA,Dancing (recreational),Female,2.96
+SA,Surfing,Male,1.33
+SA,Surfing,Female,0.84
+SA,Table tennis,Male,2.42
+SA,Table tennis,Female,0.51
+SA,Volleyball (indoor and outdoor),Male,1.13
+SA,Volleyball (indoor and outdoor),Female,1.0
+SA,Weight lifting,Male,1.38
+SA,Weight lifting,Female,0.92
+SA,Bowls,Male,1.88
+SA,Bowls,Female,0.86
+SA,Badminton,Male,1.0
+SA,Badminton,Female,1.08
+SA,Motor cycling,Male,1.06
+SA,Motor cycling,Female,0.34
+SA,Underwater sports,Male,0.83
+SA,Underwater sports,Female,0.49
+SA,Pickleball/padel,Male,0.39
+SA,Pickleball/padel,Female,0.79
+VIC,Walking (Recreational),Male,43.1
+VIC,Walking (Recreational),Female,59.1
+VIC,Fitness/Gym,Male,30.87
+VIC,Fitness/Gym,Female,32.98
+VIC,Bush walking,Male,14.74
+VIC,Bush walking,Female,17.2
+VIC,Running/jogging,Male,19.37
+VIC,Running/jogging,Female,14.66
+VIC,Swimming,Male,11.78
+VIC,Swimming,Female,14.0
+VIC,Cycling,Male,11.36
+VIC,Cycling,Female,6.32
+VIC,Pilates,Male,1.3
+VIC,Pilates,Female,13.67
+VIC,Football/soccer,Male,7.72
+VIC,Football/soccer,Female,2.31
+VIC,Yoga,Male,1.38
+VIC,Yoga,Female,8.69
+VIC,Basketball,Male,8.29
+VIC,Basketball,Female,3.56
+VIC,Australian football,Male,6.59
+VIC,Australian football,Female,1.8
+VIC,Golf,Male,8.31
+VIC,Golf,Female,1.95
+VIC,Tennis,Male,6.86
+VIC,Tennis,Female,4.49
+VIC,Netball,Male,0.83
+VIC,Netball,Female,4.0
+VIC,Cricket,Male,4.72
+VIC,Cricket,Female,0.87
+VIC,Dancing (recreational),Male,0.36
+VIC,Dancing (recreational),Female,3.26
+VIC,Surfing,Male,1.1
+VIC,Surfing,Female,0.72
+VIC,Table tennis,Male,3.17
+VIC,Table tennis,Female,1.27
+VIC,Volleyball (indoor and outdoor),Male,1.1
+VIC,Volleyball (indoor and outdoor),Female,1.04
+VIC,Weight lifting,Male,1.68
+VIC,Weight lifting,Female,1.4
+VIC,Bowls,Male,1.01
+VIC,Bowls,Female,0.6
+VIC,Badminton,Male,2.77
+VIC,Badminton,Female,1.6
+VIC,Motor cycling,Male,1.5
+VIC,Motor cycling,Female,0.44
+VIC,Underwater sports,Male,0.63
+VIC,Underwater sports,Female,0.72
+VIC,Pickleball/padel,Male,0.96
+VIC,Pickleball/padel,Female,1.18
+WA,Walking (Recreational),Male,41.33
+WA,Walking (Recreational),Female,59.53
+WA,Fitness/Gym,Male,30.92
+WA,Fitness/Gym,Female,34.79
+WA,Bush walking,Male,15.11
+WA,Bush walking,Female,20.09
+WA,Running/jogging,Male,17.78
+WA,Running/jogging,Female,15.12
+WA,Swimming,Male,14.14
+WA,Swimming,Female,18.48
+WA,Cycling,Male,13.37
+WA,Cycling,Female,9.58
+WA,Pilates,Male,0.86
+WA,Pilates,Female,12.33
+WA,Football/soccer,Male,9.83
+WA,Football/soccer,Female,1.83
+WA,Yoga,Male,1.38
+WA,Yoga,Female,8.31
+WA,Basketball,Male,7.21
+WA,Basketball,Female,2.05
+WA,Australian football,Male,7.09
+WA,Australian football,Female,1.8
+WA,Golf,Male,7.02
+WA,Golf,Female,1.79
+WA,Tennis,Male,3.94
+WA,Tennis,Female,3.9
+WA,Netball,Male,0.47
+WA,Netball,Female,4.81
+WA,Cricket,Male,4.42
+WA,Cricket,Female,0.68
+WA,Dancing (recreational),Male,0.39
+WA,Dancing (recreational),Female,3.35
+WA,Surfing,Male,2.16
+WA,Surfing,Female,1.5
+WA,Table tennis,Male,1.59
+WA,Table tennis,Female,1.45
+WA,Volleyball (indoor and outdoor),Male,2.13
+WA,Volleyball (indoor and outdoor),Female,1.66
+WA,Weight lifting,Male,1.88
+WA,Weight lifting,Female,0.76
+WA,Bowls,Male,1.03
+WA,Bowls,Female,0.51
+WA,Badminton,Male,2.02
+WA,Badminton,Female,1.71
+WA,Motor cycling,Male,1.37
+WA,Motor cycling,Female,0.62
+WA,Underwater sports,Male,1.53
+WA,Underwater sports,Female,1.47
+WA,Pickleball/padel,Male,0.86
+WA,Pickleball/padel,Female,1.0

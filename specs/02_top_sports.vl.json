@@ -1,0 +1,281 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 520,
+  "height": 440,
+  "data": {
+    "values": [
+      {
+        "sport": "Walking (Recreational)",
+        "pct": 50.204,
+        "male": 42.494,
+        "female": 57.753,
+        "rank": 1,
+        "gap": -15.259
+      },
+      {
+        "sport": "Fitness/Gym",
+        "pct": 34.102,
+        "male": 33.102,
+        "female": 35.078,
+        "rank": 2,
+        "gap": -1.976
+      },
+      {
+        "sport": "Bush walking",
+        "pct": 17.468,
+        "male": 16.302,
+        "female": 18.6,
+        "rank": 3,
+        "gap": -2.298
+      },
+      {
+        "sport": "Running/jogging",
+        "pct": 16.525,
+        "male": 18.975,
+        "female": 14.157,
+        "rank": 4,
+        "gap": 4.818
+      },
+      {
+        "sport": "Swimming",
+        "pct": 15.39,
+        "male": 14.513,
+        "female": 16.263,
+        "rank": 5,
+        "gap": -1.75
+      },
+      {
+        "sport": "Cycling",
+        "pct": 8.294,
+        "male": 10.432,
+        "female": 6.252,
+        "rank": 6,
+        "gap": 4.18
+      },
+      {
+        "sport": "Pilates",
+        "pct": 7.181,
+        "male": 1.207,
+        "female": 12.993,
+        "rank": 7,
+        "gap": -11.786
+      },
+      {
+        "sport": "Football/soccer",
+        "pct": 5.624,
+        "male": 8.871,
+        "female": 2.499,
+        "rank": 8,
+        "gap": 6.372
+      },
+      {
+        "sport": "Yoga",
+        "pct": 5.072,
+        "male": 1.59,
+        "female": 8.466,
+        "rank": 9,
+        "gap": -6.876
+      },
+      {
+        "sport": "Tennis",
+        "pct": 4.941,
+        "male": 5.842,
+        "female": 4.103,
+        "rank": 10,
+        "gap": 1.739
+      },
+      {
+        "sport": "Golf",
+        "pct": 4.563,
+        "male": 7.555,
+        "female": 1.685,
+        "rank": 11,
+        "gap": 5.87
+      },
+      {
+        "sport": "Basketball",
+        "pct": 4.526,
+        "male": 6.836,
+        "female": 2.303,
+        "rank": 12,
+        "gap": 4.533
+      },
+      {
+        "sport": "Cricket",
+        "pct": 2.492,
+        "male": 4.249,
+        "female": 0.796,
+        "rank": 13,
+        "gap": 3.453
+      },
+      {
+        "sport": "Australian football",
+        "pct": 2.417,
+        "male": 3.807,
+        "female": 1.084,
+        "rank": 14,
+        "gap": 2.723
+      },
+      {
+        "sport": "Netball",
+        "pct": 2.107,
+        "male": 0.685,
+        "female": 3.495,
+        "rank": 15,
+        "gap": -2.81
+      },
+      {
+        "sport": "Badminton",
+        "pct": 1.886,
+        "male": 2.227,
+        "female": 1.559,
+        "rank": 16,
+        "gap": 0.668
+      },
+      {
+        "sport": "Table tennis",
+        "pct": 1.79,
+        "male": 2.534,
+        "female": 1.08,
+        "rank": 17,
+        "gap": 1.454
+      },
+      {
+        "sport": "Dancing (recreational)",
+        "pct": 1.629,
+        "male": 0.491,
+        "female": 2.717,
+        "rank": 18,
+        "gap": -2.226
+      },
+      {
+        "sport": "Surfing",
+        "pct": 1.385,
+        "male": 1.731,
+        "female": 1.059,
+        "rank": 19,
+        "gap": 0.672
+      },
+      {
+        "sport": "Athletics, track and field",
+        "pct": 1.318,
+        "male": 1.739,
+        "female": 0.921,
+        "rank": 20,
+        "gap": 0.818
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "sport",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelFontSize": 10
+          }
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative",
+          "title": "Participation rate (% of Australians 15+)"
+        },
+        "color": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#dbeaf5",
+              "#aed0e8",
+              "#6fa9d4",
+              "#2b7bb5",
+              "#0d4d7a"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "sport",
+            "title": "Activity"
+          },
+          {
+            "field": "pct",
+            "title": "Participation (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "rank",
+            "title": "Rank"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 4,
+        "fontSize": 9,
+        "color": "#54657a"
+      },
+      "encoding": {
+        "y": {
+          "field": "sport",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 10,
+      "gridColor": "#e6edf4",
+      "domainColor": "#cbd6e2",
+      "tickColor": "#cbd6e2"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontSize": 11,
+      "labelFontSize": 10
+    },
+    "title": {
+      "font": "Merriweather",
+      "fontSize": 13,
+      "color": "#0d2137",
+      "anchor": "start",
+      "fontWeight": 700
+    }
+  }
+}

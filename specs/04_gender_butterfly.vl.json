@@ -1,0 +1,282 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 520,
+  "height": 330,
+  "data": {
+    "values": [
+      {
+        "sport": "Walking (Recreational)",
+        "gender": "Female",
+        "val": -57.753,
+        "disp": 57.753
+      },
+      {
+        "sport": "Walking (Recreational)",
+        "gender": "Male",
+        "val": 42.494,
+        "disp": 42.494
+      },
+      {
+        "sport": "Fitness/Gym",
+        "gender": "Female",
+        "val": -35.078,
+        "disp": 35.078
+      },
+      {
+        "sport": "Fitness/Gym",
+        "gender": "Male",
+        "val": 33.102,
+        "disp": 33.102
+      },
+      {
+        "sport": "Bush walking",
+        "gender": "Female",
+        "val": -18.6,
+        "disp": 18.6
+      },
+      {
+        "sport": "Bush walking",
+        "gender": "Male",
+        "val": 16.302,
+        "disp": 16.302
+      },
+      {
+        "sport": "Running/jogging",
+        "gender": "Female",
+        "val": -14.157,
+        "disp": 14.157
+      },
+      {
+        "sport": "Running/jogging",
+        "gender": "Male",
+        "val": 18.975,
+        "disp": 18.975
+      },
+      {
+        "sport": "Swimming",
+        "gender": "Female",
+        "val": -16.263,
+        "disp": 16.263
+      },
+      {
+        "sport": "Swimming",
+        "gender": "Male",
+        "val": 14.513,
+        "disp": 14.513
+      },
+      {
+        "sport": "Cycling",
+        "gender": "Female",
+        "val": -6.252,
+        "disp": 6.252
+      },
+      {
+        "sport": "Cycling",
+        "gender": "Male",
+        "val": 10.432,
+        "disp": 10.432
+      },
+      {
+        "sport": "Pilates",
+        "gender": "Female",
+        "val": -12.993,
+        "disp": 12.993
+      },
+      {
+        "sport": "Pilates",
+        "gender": "Male",
+        "val": 1.207,
+        "disp": 1.207
+      },
+      {
+        "sport": "Football/soccer",
+        "gender": "Female",
+        "val": -2.499,
+        "disp": 2.499
+      },
+      {
+        "sport": "Football/soccer",
+        "gender": "Male",
+        "val": 8.871,
+        "disp": 8.871
+      },
+      {
+        "sport": "Yoga",
+        "gender": "Female",
+        "val": -8.466,
+        "disp": 8.466
+      },
+      {
+        "sport": "Yoga",
+        "gender": "Male",
+        "val": 1.59,
+        "disp": 1.59
+      },
+      {
+        "sport": "Tennis",
+        "gender": "Female",
+        "val": -4.103,
+        "disp": 4.103
+      },
+      {
+        "sport": "Tennis",
+        "gender": "Male",
+        "val": 5.842,
+        "disp": 5.842
+      },
+      {
+        "sport": "Golf",
+        "gender": "Female",
+        "val": -1.685,
+        "disp": 1.685
+      },
+      {
+        "sport": "Golf",
+        "gender": "Male",
+        "val": 7.555,
+        "disp": 7.555
+      },
+      {
+        "sport": "Basketball",
+        "gender": "Female",
+        "val": -2.303,
+        "disp": 2.303
+      },
+      {
+        "sport": "Basketball",
+        "gender": "Male",
+        "val": 6.836,
+        "disp": 6.836
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadius": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "sport",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Walking (Recreational)",
+            "Fitness/Gym",
+            "Bush walking",
+            "Running/jogging",
+            "Swimming",
+            "Cycling",
+            "Pilates",
+            "Football/soccer",
+            "Yoga",
+            "Tennis",
+            "Golf",
+            "Basketball"
+          ],
+          "axis": {
+            "labelFontSize": 10,
+            "grid": false
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative",
+          "title": "← Female      Participation (%)      Male →",
+          "axis": {
+            "labelExpr": "abs(datum.value)",
+            "values": [
+              -40,
+              -20,
+              0,
+              20,
+              40
+            ]
+          }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Female",
+              "Male"
+            ],
+            "range": [
+              "#e07b8a",
+              "#1e6fa5"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "title": null,
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "sport",
+            "title": "Activity"
+          },
+          {
+            "field": "gender",
+            "title": "Gender"
+          },
+          {
+            "field": "disp",
+            "type": "quantitative",
+            "title": "Rate (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#b8c4d2",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 0
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 10,
+      "gridColor": "#e6edf4",
+      "domainColor": "#cbd6e2",
+      "tickColor": "#cbd6e2"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontSize": 11,
+      "labelFontSize": 10
+    },
+    "title": {
+      "font": "Merriweather",
+      "fontSize": 13,
+      "color": "#0d2137",
+      "anchor": "start",
+      "fontWeight": 700
+    }
+  }
+}

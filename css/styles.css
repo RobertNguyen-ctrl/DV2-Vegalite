@@ -1,68 +1,356 @@
-.section-body {
-  max-width: 1100px;
-  margin: 24px auto 0;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 28px;
-  align-items: start;
-  overflow: visible;
+/* ===========================================================================
+   How Active Is Australia? — stylesheet
+   Editorial / data-journalism aesthetic. Fraunces display + Inter body.
+   =========================================================================== */
+
+:root{
+  --navy:#0d2137;
+  --teal:#1e6fa5;
+  --teal-d:#0d4d7a;
+  --sky:#7ec8e3;
+  --coral:#e07b8a;
+  --ink:#1a2433;
+  --muted:#54657a;
+  --line:#e2e9f1;
+  --paper:#f4f7fb;
+  --card:#ffffff;
+  --maxw:1140px;
 }
 
-.section-body .s-text {
-  display: block;
-  max-width: 100%;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
 }
 
-.section-body .s-charts {
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(126,200,227,.30), transparent 60%),
+    radial-gradient(900px 600px at 10% 110%, rgba(224,123,138,.18), transparent 55%),
+    linear-gradient(140deg,#08182a 0%,#123a60 55%,#1c6298 100%);
+  color:#fff;
+  padding:84px 32px 70px;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:22px 22px;opacity:.6;
+}
+.hero-inner{position:relative;max-width:var(--maxw);margin:0 auto;}
+.kicker{
+  display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:600;color:var(--sky);border:1px solid rgba(126,200,227,.45);
+  border-radius:30px;padding:5px 16px;margin-bottom:22px;
+}
+.hero h1{
+  font-family:'Fraunces',Georgia,serif;font-weight:600;
+  font-size:clamp(2.3rem,5.2vw,4rem);line-height:1.05;letter-spacing:-.01em;
+  max-width:880px;margin-bottom:18px;
+}
+.hero h1 em{font-style:italic;color:var(--sky);}
+.hero .lede{font-size:clamp(1rem,1.6vw,1.18rem);max-width:660px;color:#d4e3f0;margin-bottom:42px;}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:920px;}
+.hstat{border-top:2px solid var(--sky);padding-top:12px;}
+.hstat .n{font-family:'Fraunces',serif;font-size:1.85rem;font-weight:600;color:#fff;line-height:1;}
+.hstat .l{font-size:.78rem;color:#a9c4da;margin-top:6px;line-height:1.35;}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+.section{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+.divider{max-width:var(--maxw);margin:56px auto 0;padding:0 32px;}
+.divider hr{border:none;border-top:1px solid var(--line);}
+
+.sec-head{max-width:var(--maxw);margin:64px auto 6px;padding:0 32px;}
+.sec-head .num{
+  font-family:'Fraunces',serif;font-size:.95rem;font-weight:600;color:var(--coral);
+  letter-spacing:.04em;display:block;margin-bottom:4px;
+}
+.sec-head h2{
+  font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);
+  color:var(--navy);line-height:1.15;letter-spacing:-.01em;max-width:760px;
+}
+.sec-head .sub{color:var(--muted);font-size:1rem;max-width:680px;margin-top:8px;}
+
+/* ---------- LAYOUT GRIDS ---------- */
+.grid{
+  max-width:var(--maxw);margin:26px auto 0;padding:0 32px;
+  display:grid;gap:30px;align-items:start;
+}
+.grid.text-right{grid-template-columns:1.35fr 1fr;}
+.grid.text-left {grid-template-columns:1fr 1.35fr;}
+.grid.even      {grid-template-columns:1fr 1fr;}
+.grid.full      {grid-template-columns:1fr;}
+
+/* ---------- TEXT BLOCK ---------- */
+.prose h3{
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.22rem;color:var(--navy);
+  line-height:1.3;margin-bottom:12px;
+}
+.prose p{color:#34465b;font-size:.95rem;margin-bottom:12px;}
+.prose strong{color:var(--teal-d);font-weight:600;}
+.prose em{color:var(--coral);font-style:normal;font-weight:600;}
+
+.note{
+  background:linear-gradient(180deg,#eaf3fb,#e3eef8);
+  border-left:4px solid var(--teal);
+  border-radius:0 10px 10px 0;
+  padding:14px 18px;font-size:.88rem;color:#1a3a5c;margin-top:16px;
+}
+.note strong{color:var(--teal-d);}
+
+/* ---------- CHART CARDS ---------- */
+.cards{display:flex;flex-direction:column;gap:22px;width:100%;}
+.card{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:20px 22px 16px;
+  box-shadow:0 6px 26px -12px rgba(13,33,55,.22);
+  width:100%;
+}
+.card .figlabel{
+  font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#90a2b6;margin-bottom:4px;
+}
+.card .figtitle{
+  font-family:'Fraunces',serif;font-size:1.02rem;font-weight:600;color:var(--navy);
+  margin-bottom:14px;line-height:1.25;
+}
+.chart-host{width:100%;min-height:60px;}
+.chart-host .vega-embed{width:100%;}
+.chart-host canvas,.chart-host svg{max-width:100%;height:auto;}
+.caption{font-size:.78rem;color:#8497ab;margin-top:10px;line-height:1.45;}
+.caption b{color:var(--muted);}
+
+/* Vega radio/selector binding styling for the map */
+.chart-host form.vega-bindings{
+  font-family:'Inter',sans-serif;font-size:.82rem;color:var(--muted);
+  margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;
+}
+.chart-host form.vega-bindings .vega-bind{display:inline-flex;align-items:center;gap:5px;}
+.chart-host form.vega-bindings label{font-weight:500;}
+.chart-host form.vega-bindings input[type=radio]{accent-color:var(--teal);}
+.chart-host .vega-bind-name{font-weight:700;color:var(--navy);}
+
+/* map two-up split */
+.maprow{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:center;}
+@media(max-width:760px){.maprow{grid-template-columns:1fr;}}
+
+/* ---------- KEY-NUMBER STRIP ---------- */
+.bignote{
+  max-width:var(--maxw);margin:24px auto 0;padding:0 32px;
+}
+.bignote .inner{
+  background:linear-gradient(110deg,var(--navy),#16456f);color:#fff;
+  border-radius:16px;padding:22px 28px;display:flex;gap:26px;align-items:center;
+  flex-wrap:wrap;
+}
+.bignote .big{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:600;color:var(--sky);line-height:1;}
+.bignote .txt{font-size:.95rem;color:#cfe0ee;flex:1;min-width:240px;}
+.bignote .txt strong{color:#fff;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  max-width:var(--maxw);margin:70px auto 0;padding:34px 32px 60px;
+  border-top:1px solid var(--line);color:#90a2b6;font-size:.82rem;
+}
+footer h4{font-family:'Fraunces',serif;color:var(--navy);font-size:1rem;margin-bottom:10px;}
+footer a{color:var(--teal);text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+footer .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 32px;margin-bottom:18px;}
+footer .meta p{margin-bottom:4px;line-height:1.5;}
+footer .fineprint{font-size:.74rem;color:#a9b6c5;border-top:1px solid var(--line);padding-top:14px;}
+
+/* ---------- RESPONSIVE: collapse to single column on small laptops/tablets ---------- */
+@media(max-width:880px){
+  .grid.text-right,.grid.text-left,.grid.even{grid-template-columns:1fr;}
+  .grid.text-right .prose{order:-1;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---- Vega interactive binding controls ---- */
+.vega-embed .vega-bindings {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.83rem;
+  color: #36475c;
+  padding: 0 0 8px 0;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+}
+.vega-embed .vega-bind {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.vega-embed .vega-bind-name {
+  font-weight: 600;
+  color: #0d2137;
+  white-space: nowrap;
+}
+.vega-embed .vega-bind select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  padding: 5px 28px 5px 10px;
+  border: 1.5px solid #c8d8e8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0d2137;
+  cursor: pointer;
+  appearance: auto;
+}
+.vega-embed .vega-bind select:hover {
+  border-color: #1e6fa5;
+}
+.vega-embed .vega-bind select:focus {
+  outline: 2px solid #1e6fa5;
+  border-color: #1e6fa5;
+}
+/* Prevent embed from clipping the dropdown */
+.vega-embed {
+  width: 100% !important;
+  overflow: visible !important;
+}
+.chart-host .vega-embed {
+  overflow: visible !important;
+}
+
+/* ---- Force chart containers to always fill card width ---- */
+.card { overflow: visible; }
+
+.chart-host {
   width: 100%;
+  min-width: 0;
 }
 
-.s-text .highlight {
-  background: #e8f4fd;
-  border-left: 4px solid #1e6fa5;
-  padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.88rem;
-  color: #1a3a5c;
-  margin-top: 14px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-
-.s-text .highlight { 
-  background: #e8f4fd; 
-  border-left: 4px solid #1e6fa5; 
-  padding: 12px 16px; 
-  border-radius: 0 8px 8px 0; 
-  font-size: 0.88rem; 
-  color: #1a3a5c; 
-  margin-top: 14px;
-  margin-left: -16px;
-  margin-right: -16px;
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-
-.highlight {
-  background: #e8f4fd;
-  border-left: 4px solid #1e6fa5;
-  padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
-  font-size: 0.88rem;
-  color: #1a3a5c;
-  margin-top: 20px;
-  margin-bottom: 20px;
+/* Make vega-embed and its canvas/svg fill 100% of host */
+.chart-host > .vega-embed {
+  width: 100% !important;
+  max-width: 100% !important;
   display: block;
-  box-sizing: border-box;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+}
+.chart-host > .vega-embed > summary { display: none; }
+
+/* hconcat/vconcat charts: let the SVG overflow the fixed px widths gracefully */
+.chart-host > .vega-embed > div > svg,
+.chart-host > .vega-embed > div > canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
+/* Remove extra bottom gap on embedded binding controls */
+.chart-host .vega-embed .chart-wrapper { overflow: visible; }
+
+/* ---- Sport explorer: move dropdown to top of chart ---- */
+#chart-sportexp .vega-embed {
+  display: flex !important;
+  flex-direction: column !important;
+}
+#chart-sportexp .vega-embed .vega-bindings {
+  order: -1;   /* above the SVG */
+  margin-bottom: 10px;
+}
+
+/* same for the map dropdown */
+#chart-map .vega-embed {
+  display: flex !important;
+  flex-direction: column !important;
+}
+#chart-map .vega-embed .vega-bindings {
+  order: -1;
+  margin-bottom: 8px;
+}
+
+/* All bindings: clean pill style */
+.vega-embed .vega-bindings {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.83rem;
+  color: #36475c;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+.vega-embed .vega-bind {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.vega-embed .vega-bind-name {
+  font-weight: 600;
+  color: #0d2137;
+  white-space: nowrap;
+}
+.vega-embed .vega-bind select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  padding: 5px 28px 5px 12px;
+  border: 1.5px solid #c8d8e8;
+  border-radius: 8px;
+  background: #fff;
+  color: #0d2137;
+  cursor: pointer;
+  min-width: 180px;
+  max-width: 340px;
+}
+.vega-embed .vega-bind select:hover { border-color: #1e6fa5; }
+.vega-embed .vega-bind select:focus { outline: 2px solid #1e6fa5; border-color: #1e6fa5; }
+
+
+/* =========================================================
+   VEGA — chart sizing (clean, definitive)
+   ========================================================= */
+
+/* chart-host fills its card */
+.chart-host { width:100%; display:block; }
+
+/* vega-embed and its children fill host width */
+.vega-embed { width:100% !important; overflow:visible !important; }
+.vega-embed > summary { display:none; }
+
+/* THE KEY FIX: SVG must NOT use height:auto — it must keep its intrinsic height.
+   Vega outputs SVG with width/height attrs in high-DPI pixels.
+   Setting width=100% via CSS shrinks it horizontally but browser keeps aspect ratio,
+   making height tiny. Fix: let the SVG overflow its container naturally. */
+.chart-host .vega-embed > div { overflow: visible; }
+.chart-host .vega-embed > div > svg {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Vega binding controls */
+.vega-embed .vega-bindings {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.83rem; color: #36475c;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0;
+}
+.vega-embed .vega-bind { display:inline-flex; align-items:center; gap:6px; }
+.vega-embed .vega-bind-name { font-weight:600; color:#0d2137; white-space:nowrap; }
+.vega-embed .vega-bind select {
+  font-family:'Inter',sans-serif; font-size:0.82rem;
+  padding:5px 28px 5px 12px; border:1.5px solid #c8d8e8;
+  border-radius:8px; background:#fff; color:#0d2137;
+  cursor:pointer; min-width:180px; max-width:340px;
+}
+.vega-embed .vega-bind select:hover { border-color:#1e6fa5; }
+.vega-embed .vega-bind select:focus { outline:2px solid #1e6fa5; border-color:#1e6fa5; }
+
+/* Sport explorer & map: dropdown above SVG */
+#chart-sportexp .vega-embed,
+#chart-map .vega-embed {
+  display:flex !important; flex-direction:column !important;
+}
+#chart-sportexp .vega-embed .vega-bindings,
+#chart-map .vega-embed .vega-bindings { order:-1; margin-bottom:10px; }
+
+/* statebar: HTML chart, no Vega sizing issues */
+#chart-statebar { min-height: 0; }

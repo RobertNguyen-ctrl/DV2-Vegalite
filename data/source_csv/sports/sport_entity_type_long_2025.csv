@@ -1,0 +1,199 @@
+activity,entity_type,pct,total_organised
+"Athletics, track and field",Sports club,0.255,0.765
+"Athletics, track and field",Recreation club,0.119,0.765
+"Athletics, track and field",Gym/fitness centre,0.112,0.765
+"Athletics, track and field",Private/commercial,0.093,0.765
+"Athletics, track and field",Personal trainer,0.148,0.765
+"Athletics, track and field",Educational institution,0.208,0.765
+Australian football,Sports club,0.989,1.72
+Australian football,Recreation club,0.257,1.72
+Australian football,Gym/fitness centre,0.212,1.72
+Australian football,Private/commercial,0.119,1.72
+Australian football,Personal trainer,0.166,1.72
+Australian football,Educational institution,0.231,1.72
+Badminton,Sports club,0.183,0.798
+Badminton,Recreation club,0.103,0.798
+Badminton,Gym/fitness centre,0.06,0.798
+Badminton,Private/commercial,0.035,0.798
+Badminton,Personal trainer,0.068,0.798
+Badminton,Educational institution,0.25,0.798
+Basketball,Sports club,1.002,2.301
+Basketball,Recreation club,0.429,2.301
+Basketball,Gym/fitness centre,0.298,2.301
+Basketball,Private/commercial,0.13,2.301
+Basketball,Personal trainer,0.165,2.301
+Basketball,Educational institution,0.484,2.301
+Bowls,Sports club,0.451,0.711
+Bowls,Recreation club,0.199,0.711
+Bowls,Gym/fitness centre,0.023,0.711
+Bowls,Private/commercial,0.005,0.711
+Bowls,Personal trainer,0.029,0.711
+Bowls,Educational institution,0.012,0.711
+Boxing,Sports club,0.092,0.606
+Boxing,Recreation club,0.025,0.606
+Boxing,Gym/fitness centre,0.225,0.606
+Boxing,Private/commercial,0.178,0.606
+Boxing,Personal trainer,0.129,0.606
+Boxing,Educational institution,0.012,0.606
+Bush walking,Sports club,0.21,2.241
+Bush walking,Recreation club,0.311,2.241
+Bush walking,Gym/fitness centre,0.145,2.241
+Bush walking,Private/commercial,0.313,2.241
+Bush walking,Personal trainer,0.119,2.241
+Bush walking,Educational institution,0.262,2.241
+Cricket,Sports club,0.967,1.599
+Cricket,Recreation club,0.241,1.599
+Cricket,Gym/fitness centre,0.156,1.599
+Cricket,Private/commercial,0.1,1.599
+Cricket,Personal trainer,0.112,1.599
+Cricket,Educational institution,0.265,1.599
+Crossfit/Functional fitness,Sports club,0.032,0.54
+Crossfit/Functional fitness,Recreation club,0.014,0.54
+Crossfit/Functional fitness,Gym/fitness centre,0.28,0.54
+Crossfit/Functional fitness,Private/commercial,0.212,0.54
+Crossfit/Functional fitness,Personal trainer,0.048,0.54
+Crossfit/Functional fitness,Educational institution,0.006,0.54
+Cycling,Sports club,0.18,0.978
+Cycling,Recreation club,0.141,0.978
+Cycling,Gym/fitness centre,0.19,0.978
+Cycling,Private/commercial,0.092,0.978
+Cycling,Personal trainer,0.095,0.978
+Cycling,Educational institution,0.05,0.978
+DanceSport,Sports club,0.101,0.71
+DanceSport,Recreation club,0.095,0.71
+DanceSport,Gym/fitness centre,0.069,0.71
+DanceSport,Private/commercial,0.319,0.71
+DanceSport,Personal trainer,0.075,0.71
+DanceSport,Educational institution,0.103,0.71
+Dancing (recreational),Sports club,0.081,1.083
+Dancing (recreational),Recreation club,0.122,1.083
+Dancing (recreational),Gym/fitness centre,0.109,1.083
+Dancing (recreational),Private/commercial,0.554,1.083
+Dancing (recreational),Personal trainer,0.127,1.083
+Dancing (recreational),Educational institution,0.099,1.083
+Fitness/Gym,Sports club,0.881,13.499
+Fitness/Gym,Recreation club,0.613,13.499
+Fitness/Gym,Gym/fitness centre,6.502,13.499
+Fitness/Gym,Private/commercial,2.949,13.499
+Fitness/Gym,Personal trainer,3.155,13.499
+Fitness/Gym,Educational institution,0.424,13.499
+Football/soccer,Sports club,1.788,3.618
+Football/soccer,Recreation club,0.668,3.618
+Football/soccer,Gym/fitness centre,0.413,3.618
+Football/soccer,Private/commercial,0.21,3.618
+Football/soccer,Personal trainer,0.329,3.618
+Football/soccer,Educational institution,0.661,3.618
+Golf,Sports club,1.362,2.257
+Golf,Recreation club,0.362,2.257
+Golf,Gym/fitness centre,0.087,2.257
+Golf,Private/commercial,0.201,2.257
+Golf,Personal trainer,0.199,2.257
+Golf,Educational institution,0.043,2.257
+Gymnastics,Sports club,0.107,0.328
+Gymnastics,Recreation club,0.038,0.328
+Gymnastics,Gym/fitness centre,0.065,0.328
+Gymnastics,Private/commercial,0.088,0.328
+Gymnastics,Personal trainer,0.031,0.328
+Gymnastics,Educational institution,0.046,0.328
+Hockey,Sports club,0.354,0.484
+Hockey,Recreation club,0.061,0.484
+Hockey,Gym/fitness centre,0.013,0.484
+Hockey,Private/commercial,0.005,0.484
+Hockey,Personal trainer,0.01,0.484
+Hockey,Educational institution,0.071,0.484
+Martial arts,Sports club,0.06,0.44
+Martial arts,Recreation club,0.04,0.44
+Martial arts,Gym/fitness centre,0.109,0.44
+Martial arts,Private/commercial,0.145,0.44
+Martial arts,Personal trainer,0.043,0.44
+Martial arts,Educational institution,0.011,0.44
+Motor cycling,Sports club,0.101,0.306
+Motor cycling,Recreation club,0.045,0.306
+Motor cycling,Gym/fitness centre,0.067,0.306
+Motor cycling,Private/commercial,0.052,0.306
+Motor cycling,Personal trainer,0.034,0.306
+Motor cycling,Educational institution,0.029,0.306
+Netball,Sports club,0.982,1.853
+Netball,Recreation club,0.374,1.853
+Netball,Gym/fitness centre,0.166,1.853
+Netball,Private/commercial,0.071,1.853
+Netball,Personal trainer,0.047,1.853
+Netball,Educational institution,0.249,1.853
+Pickleball/padel,Sports club,0.171,0.679
+Pickleball/padel,Recreation club,0.101,0.679
+Pickleball/padel,Gym/fitness centre,0.114,0.679
+Pickleball/padel,Private/commercial,0.065,0.679
+Pickleball/padel,Personal trainer,0.028,0.679
+Pickleball/padel,Educational institution,0.038,0.679
+Pilates,Sports club,0.084,5.56
+Pilates,Recreation club,0.076,5.56
+Pilates,Gym/fitness centre,1.732,5.56
+Pilates,Private/commercial,3.67,5.56
+Pilates,Personal trainer,0.434,5.56
+Pilates,Educational institution,0.067,5.56
+Rugby league,Sports club,0.275,0.534
+Rugby league,Recreation club,0.081,0.534
+Rugby league,Gym/fitness centre,0.07,0.534
+Rugby league,Private/commercial,0.044,0.534
+Rugby league,Personal trainer,0.063,0.534
+Rugby league,Educational institution,0.105,0.534
+Rugby union,Sports club,0.168,0.306
+Rugby union,Recreation club,0.067,0.306
+Rugby union,Gym/fitness centre,0.031,0.306
+Rugby union,Private/commercial,0.023,0.306
+Rugby union,Personal trainer,0.032,0.306
+Rugby union,Educational institution,0.06,0.306
+Running/jogging,Sports club,0.696,4.923
+Running/jogging,Recreation club,0.523,4.923
+Running/jogging,Gym/fitness centre,0.647,4.923
+Running/jogging,Private/commercial,0.322,4.923
+Running/jogging,Personal trainer,0.401,4.923
+Running/jogging,Educational institution,0.439,4.923
+Swimming,Sports club,0.483,2.672
+Swimming,Recreation club,0.268,2.672
+Swimming,Gym/fitness centre,0.766,2.672
+Swimming,Private/commercial,0.343,2.672
+Swimming,Personal trainer,0.37,2.672
+Swimming,Educational institution,0.298,2.672
+Table tennis,Sports club,0.189,0.593
+Table tennis,Recreation club,0.122,0.593
+Table tennis,Gym/fitness centre,0.075,0.593
+Table tennis,Private/commercial,0.032,0.593
+Table tennis,Personal trainer,0.072,0.593
+Table tennis,Educational institution,0.117,0.593
+Tennis,Sports club,0.872,1.95
+Tennis,Recreation club,0.288,1.95
+Tennis,Gym/fitness centre,0.175,1.95
+Tennis,Private/commercial,0.171,1.95
+Tennis,Personal trainer,0.339,1.95
+Tennis,Educational institution,0.194,1.95
+Touch football,Sports club,0.284,0.538
+Touch football,Recreation club,0.081,0.538
+Touch football,Gym/fitness centre,0.03,0.538
+Touch football,Private/commercial,0.008,0.538
+Touch football,Personal trainer,0.005,0.538
+Touch football,Educational institution,0.081,0.538
+Underwater sports,Sports club,0.035,0.372
+Underwater sports,Recreation club,0.029,0.372
+Underwater sports,Gym/fitness centre,0.014,0.372
+Underwater sports,Private/commercial,0.228,0.372
+Underwater sports,Personal trainer,0.033,0.372
+Underwater sports,Educational institution,0.03,0.372
+Volleyball (indoor and outdoor),Sports club,0.257,0.871
+Volleyball (indoor and outdoor),Recreation club,0.153,0.871
+Volleyball (indoor and outdoor),Gym/fitness centre,0.102,0.871
+Volleyball (indoor and outdoor),Private/commercial,0.066,0.871
+Volleyball (indoor and outdoor),Personal trainer,0.024,0.871
+Volleyball (indoor and outdoor),Educational institution,0.311,0.871
+Walking (Recreational),Sports club,0.266,4.212
+Walking (Recreational),Recreation club,0.351,4.212
+Walking (Recreational),Gym/fitness centre,0.335,4.212
+Walking (Recreational),Private/commercial,0.175,4.212
+Walking (Recreational),Personal trainer,0.201,4.212
+Walking (Recreational),Educational institution,0.361,4.212
+Yoga,Sports club,0.071,2.907
+Yoga,Recreation club,0.117,2.907
+Yoga,Gym/fitness centre,0.862,2.907
+Yoga,Private/commercial,1.55,2.907
+Yoga,Personal trainer,0.173,2.907
+Yoga,Educational institution,0.082,2.907

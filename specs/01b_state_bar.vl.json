@@ -1,0 +1,293 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 520,
+  "height": 250,
+  "data": {
+    "values": [
+      {
+        "abbr": "ACT",
+        "state": "Australian Capital Territory",
+        "pop": 475600,
+        "annual": 91.27,
+        "weekly": 77.21,
+        "three": 59.7,
+        "annual_m": 88.39,
+        "annual_f": 94.31,
+        "active": 434080,
+        "gendergap": 5.92,
+        "committed": 59.7,
+        "bi_rate": 2,
+        "bi_comm": 2,
+        "bi_class": "2-2"
+      },
+      {
+        "abbr": "NSW",
+        "state": "New South Wales",
+        "pop": 8511200,
+        "annual": 85.05,
+        "weekly": 66.18,
+        "three": 47.04,
+        "annual_m": 85.82,
+        "annual_f": 84.38,
+        "active": 7238776,
+        "gendergap": -1.44,
+        "committed": 47.04,
+        "bi_rate": 1,
+        "bi_comm": 0,
+        "bi_class": "1-0"
+      },
+      {
+        "abbr": "NT",
+        "state": "Northern Territory",
+        "pop": 255600,
+        "annual": 91.58,
+        "weekly": 75.3,
+        "three": 55.99,
+        "annual_m": 90.61,
+        "annual_f": 92.39,
+        "active": 234078,
+        "gendergap": 1.78,
+        "committed": 55.99,
+        "bi_rate": 2,
+        "bi_comm": 2,
+        "bi_class": "2-2"
+      },
+      {
+        "abbr": "QLD",
+        "state": "Queensland",
+        "pop": 5608700,
+        "annual": 83.4,
+        "weekly": 66.12,
+        "three": 48.75,
+        "annual_m": 84.05,
+        "annual_f": 82.96,
+        "active": 4677656,
+        "gendergap": -1.09,
+        "committed": 48.75,
+        "bi_rate": 0,
+        "bi_comm": 1,
+        "bi_class": "0-1"
+      },
+      {
+        "abbr": "SA",
+        "state": "South Australia",
+        "pop": 1882700,
+        "annual": 84.49,
+        "weekly": 65.91,
+        "three": 47.71,
+        "annual_m": 82.34,
+        "annual_f": 86.65,
+        "active": 1590693,
+        "gendergap": 4.31,
+        "committed": 47.71,
+        "bi_rate": 0,
+        "bi_comm": 0,
+        "bi_class": "0-0"
+      },
+      {
+        "abbr": "TAS",
+        "state": "Tasmania",
+        "pop": 576000,
+        "annual": 86.09,
+        "weekly": 69.16,
+        "three": 52.85,
+        "annual_m": 84.15,
+        "annual_f": 88.03,
+        "active": 495878,
+        "gendergap": 3.88,
+        "committed": 52.85,
+        "bi_rate": 1,
+        "bi_comm": 2,
+        "bi_class": "1-2"
+      },
+      {
+        "abbr": "VIC",
+        "state": "Victoria",
+        "pop": 7013000,
+        "annual": 86.96,
+        "weekly": 69.59,
+        "three": 50.05,
+        "annual_m": 87.73,
+        "annual_f": 86.44,
+        "active": 6098505,
+        "gendergap": -1.29,
+        "committed": 50.05,
+        "bi_rate": 2,
+        "bi_comm": 1,
+        "bi_class": "2-1"
+      },
+      {
+        "abbr": "WA",
+        "state": "Western Australia",
+        "pop": 2981800,
+        "annual": 86.79,
+        "weekly": 69.63,
+        "three": 50.51,
+        "annual_m": 87.29,
+        "annual_f": 86.47,
+        "active": 2587904,
+        "gendergap": -0.82,
+        "committed": 50.51,
+        "bi_rate": 1,
+        "bi_comm": 1,
+        "bi_class": "1-1"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3,
+        "height": 16
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelFontSize": 11,
+            "labelFontWeight": 600
+          }
+        },
+        "x": {
+          "field": "annual",
+          "type": "quantitative",
+          "title": "Active at least once a year (%)",
+          "scale": {
+            "domain": [
+              80,
+              93
+            ]
+          }
+        },
+        "color": {
+          "field": "annual",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#dbeaf5",
+              "#aed0e8",
+              "#6fa9d4",
+              "#2b7bb5",
+              "#0d4d7a"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "annual",
+            "title": "Annual (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "active",
+            "title": "Active people",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 10,
+        "color": "#36475c",
+        "fontWeight": 600
+      },
+      "encoding": {
+        "y": {
+          "field": "abbr",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "annual",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "annual",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#e07b8a",
+        "strokeWidth": 1.5,
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "datum": 85.29
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "color": "#e07b8a",
+        "fontSize": 9,
+        "fontWeight": 700,
+        "align": "center",
+        "dy": -118
+      },
+      "encoding": {
+        "x": {
+          "datum": 85.29
+        },
+        "text": {
+          "value": "National 85.3%"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 10,
+      "gridColor": "#e6edf4",
+      "domainColor": "#cbd6e2",
+      "tickColor": "#cbd6e2"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontSize": 11,
+      "labelFontSize": 10
+    },
+    "title": {
+      "font": "Merriweather",
+      "fontSize": 13,
+      "color": "#0d2137",
+      "anchor": "start",
+      "fontWeight": 700
+    }
+  }
+}

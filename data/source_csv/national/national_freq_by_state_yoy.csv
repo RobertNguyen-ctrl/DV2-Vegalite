@@ -1,0 +1,163 @@
+gender_group,year,frequency,state,pct
+All,2024,At least once per year,ACT,92.18
+All,2024,At least once per year,NSW,85.5
+All,2024,At least once per year,NT,86.43
+All,2024,At least once per year,QLD,82.91
+All,2024,At least once per year,SA,83.48
+All,2024,At least once per year,TAS,86.42
+All,2024,At least once per year,VIC,86.62
+All,2024,At least once per year,WA,85.75
+All,2024,At least once per year,National,85.29
+All,2024,At least once per week,ACT,76.62
+All,2024,At least once per week,NSW,66.45
+All,2024,At least once per week,NT,69.89
+All,2024,At least once per week,QLD,64.98
+All,2024,At least once per week,SA,65.11
+All,2024,At least once per week,TAS,69.65
+All,2024,At least once per week,VIC,69.12
+All,2024,At least once per week,WA,66.88
+All,2024,At least once per week,National,67.07
+All,2024,At least three times per week,ACT,58.19
+All,2024,At least three times per week,NSW,47.27
+All,2024,At least three times per week,NT,50.42
+All,2024,At least three times per week,QLD,47.25
+All,2024,At least three times per week,SA,46.06
+All,2024,At least three times per week,TAS,53.27
+All,2024,At least three times per week,VIC,49.7
+All,2024,At least three times per week,WA,48.3
+All,2024,At least three times per week,National,48.26
+All,2025,At least once per year,ACT,92.24
+All,2025,At least once per year,NSW,85.41
+All,2025,At least once per year,NT,89.34
+All,2025,At least once per year,QLD,83.92
+All,2025,At least once per year,SA,84.3
+All,2025,At least once per year,TAS,86.96
+All,2025,At least once per year,VIC,87.46
+All,2025,At least once per year,WA,86.81
+All,2025,At least once per year,National,85.9
+All,2025,At least once per week,ACT,78.27
+All,2025,At least once per week,NSW,67.17
+All,2025,At least once per week,NT,72.95
+All,2025,At least once per week,QLD,67.35
+All,2025,At least once per week,SA,67.05
+All,2025,At least once per week,TAS,69.4
+All,2025,At least once per week,VIC,70.52
+All,2025,At least once per week,WA,70.93
+All,2025,At least once per week,National,68.76
+All,2025,At least three times per week,ACT,59.18
+All,2025,At least three times per week,NSW,47.95
+All,2025,At least three times per week,NT,54.38
+All,2025,At least three times per week,QLD,49.61
+All,2025,At least three times per week,SA,48.64
+All,2025,At least three times per week,TAS,51.26
+All,2025,At least three times per week,VIC,51.67
+All,2025,At least three times per week,WA,52.47
+All,2025,At least three times per week,National,50.11
+Males,2024,At least once per year,ACT,90.36
+Males,2024,At least once per year,NSW,86.76
+Males,2024,At least once per year,NT,90.03
+Males,2024,At least once per year,QLD,84.02
+Males,2024,At least once per year,SA,83.39
+Males,2024,At least once per year,TAS,85.24
+Males,2024,At least once per year,VIC,87.23
+Males,2024,At least once per year,WA,85.68
+Males,2024,At least once per year,National,86.04
+Males,2024,At least once per week,ACT,76.82
+Males,2024,At least once per week,NSW,66.35
+Males,2024,At least once per week,NT,73.75
+Males,2024,At least once per week,QLD,65.14
+Males,2024,At least once per week,SA,66.04
+Males,2024,At least once per week,TAS,67.42
+Males,2024,At least once per week,VIC,68.57
+Males,2024,At least once per week,WA,66.74
+Males,2024,At least once per week,National,66.98
+Males,2024,At least three times per week,ACT,57.3
+Males,2024,At least three times per week,NSW,46.79
+Males,2024,At least three times per week,NT,49.88
+Males,2024,At least three times per week,QLD,46.55
+Males,2024,At least three times per week,SA,45.56
+Males,2024,At least three times per week,TAS,51.53
+Males,2024,At least three times per week,VIC,47.61
+Males,2024,At least three times per week,WA,47.27
+Males,2024,At least three times per week,National,47.24
+Males,2025,At least once per year,ACT,90.79
+Males,2025,At least once per year,NSW,86.55
+Males,2025,At least once per year,NT,87.65
+Males,2025,At least once per year,QLD,84.85
+Males,2025,At least once per year,SA,83.68
+Males,2025,At least once per year,TAS,85.33
+Males,2025,At least once per year,VIC,88.46
+Males,2025,At least once per year,WA,87.74
+Males,2025,At least once per year,National,86.69
+Males,2025,At least once per week,ACT,75.46
+Males,2025,At least once per week,NSW,67.46
+Males,2025,At least once per week,NT,67.22
+Males,2025,At least once per week,QLD,67.58
+Males,2025,At least once per week,SA,67.5
+Males,2025,At least once per week,TAS,66.9
+Males,2025,At least once per week,VIC,71.14
+Males,2025,At least once per week,WA,70.36
+Males,2025,At least once per week,National,68.88
+Males,2025,At least three times per week,ACT,55.05
+Males,2025,At least three times per week,NSW,47.48
+Males,2025,At least three times per week,NT,48.02
+Males,2025,At least three times per week,QLD,49.32
+Males,2025,At least three times per week,SA,49.3
+Males,2025,At least three times per week,TAS,48.02
+Males,2025,At least three times per week,VIC,51.21
+Males,2025,At least three times per week,WA,50.71
+Males,2025,At least three times per week,National,49.44
+Females,2024,At least once per year,ACT,93.93
+Females,2024,At least once per year,NSW,84.45
+Females,2024,At least once per year,NT,83.39
+Females,2024,At least once per year,QLD,82.14
+Females,2024,At least once per year,SA,83.94
+Females,2024,At least once per year,TAS,87.52
+Females,2024,At least once per year,VIC,86.12
+Females,2024,At least once per year,WA,85.9
+Females,2024,At least once per year,National,84.74
+Females,2024,At least once per week,ACT,76.98
+Females,2024,At least once per week,NSW,66.77
+Females,2024,At least once per week,NT,66.77
+Females,2024,At least once per week,QLD,64.99
+Females,2024,At least once per week,SA,64.56
+Females,2024,At least once per week,TAS,71.81
+Females,2024,At least once per week,VIC,69.73
+Females,2024,At least once per week,WA,67.08
+Females,2024,At least once per week,National,67.32
+Females,2024,At least three times per week,ACT,59.56
+Females,2024,At least three times per week,NSW,47.85
+Females,2024,At least three times per week,NT,50.95
+Females,2024,At least three times per week,QLD,48.12
+Females,2024,At least three times per week,SA,46.8
+Females,2024,At least three times per week,TAS,55.05
+Females,2024,At least three times per week,VIC,51.76
+Females,2024,At least three times per week,WA,49.32
+Females,2024,At least three times per week,National,49.37
+Females,2025,At least once per year,ACT,94.18
+Females,2025,At least once per year,NSW,84.32
+Females,2025,At least once per year,NT,90.84
+Females,2025,At least once per year,QLD,83.11
+Females,2025,At least once per year,SA,85.01
+Females,2025,At least once per year,TAS,88.32
+Females,2025,At least once per year,VIC,86.7
+Females,2025,At least once per year,WA,86.08
+Females,2025,At least once per year,National,85.24
+Females,2025,At least once per week,ACT,81.23
+Females,2025,At least once per week,NSW,67.03
+Females,2025,At least once per week,NT,78.05
+Females,2025,At least once per week,QLD,67.17
+Females,2025,At least once per week,SA,66.71
+Females,2025,At least once per week,TAS,71.64
+Females,2025,At least once per week,VIC,70.12
+Females,2025,At least once per week,WA,71.63
+Females,2025,At least once per week,National,68.78
+Females,2025,At least three times per week,ACT,63.34
+Females,2025,At least three times per week,NSW,48.55
+Females,2025,At least three times per week,NT,60.03
+Females,2025,At least three times per week,QLD,49.94
+Females,2025,At least three times per week,SA,48.0
+Females,2025,At least three times per week,TAS,54.05
+Females,2025,At least three times per week,VIC,52.26
+Females,2025,At least three times per week,WA,54.4
+Females,2025,At least three times per week,National,50.87

@@ -1,0 +1,255 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 520,
+  "height": 430,
+  "params": [
+    {
+      "name": "metric",
+      "value": "annual",
+      "bind": {
+        "input": "select",
+        "name": "Show map by: ",
+        "options": [
+          "annual",
+          "weekly",
+          "activeM"
+        ],
+        "labels": [
+          "Yearly rate (%)",
+          "Weekly rate (%)",
+          "Active people (M)"
+        ]
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -28
+    ],
+    "scale": 620
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eef3f8",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "values": [
+                {
+                  "state": "Australian Capital Territory",
+                  "abbr": "ACT",
+                  "annual": 91.27,
+                  "weekly": 77.21,
+                  "three": 59.7,
+                  "active": 434080,
+                  "pop": 475600,
+                  "activeM": 0.43408
+                },
+                {
+                  "state": "New South Wales",
+                  "abbr": "NSW",
+                  "annual": 85.05,
+                  "weekly": 66.18,
+                  "three": 47.04,
+                  "active": 7238776,
+                  "pop": 8511200,
+                  "activeM": 7.238776
+                },
+                {
+                  "state": "Northern Territory",
+                  "abbr": "NT",
+                  "annual": 91.58,
+                  "weekly": 75.3,
+                  "three": 55.99,
+                  "active": 234078,
+                  "pop": 255600,
+                  "activeM": 0.234078
+                },
+                {
+                  "state": "Queensland",
+                  "abbr": "QLD",
+                  "annual": 83.4,
+                  "weekly": 66.12,
+                  "three": 48.75,
+                  "active": 4677656,
+                  "pop": 5608700,
+                  "activeM": 4.677656
+                },
+                {
+                  "state": "South Australia",
+                  "abbr": "SA",
+                  "annual": 84.49,
+                  "weekly": 65.91,
+                  "three": 47.71,
+                  "active": 1590693,
+                  "pop": 1882700,
+                  "activeM": 1.590693
+                },
+                {
+                  "state": "Tasmania",
+                  "abbr": "TAS",
+                  "annual": 86.09,
+                  "weekly": 69.16,
+                  "three": 52.85,
+                  "active": 495878,
+                  "pop": 576000,
+                  "activeM": 0.495878
+                },
+                {
+                  "state": "Victoria",
+                  "abbr": "VIC",
+                  "annual": 86.96,
+                  "weekly": 69.59,
+                  "three": 50.05,
+                  "active": 6098505,
+                  "pop": 7013000,
+                  "activeM": 6.098505
+                },
+                {
+                  "state": "Western Australia",
+                  "abbr": "WA",
+                  "annual": 86.79,
+                  "weekly": 69.63,
+                  "three": 50.51,
+                  "active": 2587904,
+                  "pop": 2981800,
+                  "activeM": 2.587904
+                }
+              ]
+            },
+            "key": "state",
+            "fields": [
+              "abbr",
+              "annual",
+              "weekly",
+              "three",
+              "active",
+              "pop",
+              "activeM"
+            ]
+          }
+        },
+        {
+          "calculate": "metric==='annual'?datum.annual : metric==='weekly'?datum.weekly : datum.activeM",
+          "as": "val"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.4
+      },
+      "encoding": {
+        "color": {
+          "field": "val",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              "#dbeaf5",
+              "#aed0e8",
+              "#6fa9d4",
+              "#2b7bb5",
+              "#0d4d7a"
+            ]
+          },
+          "legend": {
+            "orient": "bottom-left",
+            "title": null,
+            "gradientLength": 150,
+            "labelExpr": "metric==='activeM' ? datum.value+'M' : datum.value+'%'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "annual",
+            "type": "quantitative",
+            "title": "Active 1+/yr (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "weekly",
+            "type": "quantitative",
+            "title": "Active weekly (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "active",
+            "type": "quantitative",
+            "title": "Active people (est.)",
+            "format": ","
+          },
+          {
+            "field": "pop",
+            "type": "quantitative",
+            "title": "Population (ABS 2024)",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "font": "Inter, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontWeight": 600,
+      "titleFontSize": 11,
+      "labelFontSize": 10,
+      "gridColor": "#e6edf4",
+      "domainColor": "#cbd6e2",
+      "tickColor": "#cbd6e2"
+    },
+    "legend": {
+      "labelFont": "Inter",
+      "titleFont": "Inter",
+      "labelColor": "#54657a",
+      "titleColor": "#36475c",
+      "titleFontSize": 11,
+      "labelFontSize": 10
+    },
+    "title": {
+      "font": "Merriweather",
+      "fontSize": 13,
+      "color": "#0d2137",
+      "anchor": "start",
+      "fontWeight": 700
+    }
+  }
+}

@@ -1,0 +1,193 @@
+state,barrier,all_pct,male_pct,female_pct
+ACT,Poor health/injury,17.43,16.12,20.86
+ACT,Increasing age/too old,9.54,11.67,5.23
+ACT,Disability,8.07,5.98,9.55
+ACT,Too lazy,18.0,17.21,20.3
+ACT,Not enough time,25.17,21.67,33.63
+ACT,Don't like sport,10.89,11.86,9.14
+ACT,Not a priority,15.23,14.28,17.79
+ACT,Nobody to do it with,3.9,2.79,6.46
+ACT,Can't afford it,4.19,3.23,6.42
+ACT,Fear of injury,6.34,7.11,4.89
+ACT,Physical job,9.05,10.1,7.06
+ACT,Weather,2.55,1.11,5.78
+ACT,Not good enough,6.39,6.42,6.53
+ACT,Too busy with children's activities,5.67,3.44,10.71
+ACT,Looking after children,4.46,4.89,3.66
+ACT,Not value for money,4.8,3.0,8.87
+ACT,No transport,0.0,0.0,0.0
+ACT,No facilities/clubs,0.98,0.0,3.16
+ACT,Too competitive,5.67,8.36,0.0
+ACT,Fear of discrimination,2.2,1.49,3.83
+ACT,Not familiar with activity,2.09,3.08,0.0
+ACT,Pregnancy,1.09,0.0,3.49
+ACT,No longer interested,1.01,1.49,0.0
+ACT,Not culturally appropriate,2.39,3.52,0.0
+NSW,Poor health/injury,27.04,25.01,29.22
+NSW,Increasing age/too old,24.67,20.24,28.93
+NSW,Disability,14.14,9.8,18.18
+NSW,Too lazy,15.11,15.48,14.35
+NSW,Not enough time,11.32,10.82,11.93
+NSW,Don't like sport,11.2,7.78,14.2
+NSW,Not a priority,11.7,11.7,11.85
+NSW,Nobody to do it with,6.81,6.19,7.44
+NSW,Can't afford it,5.68,4.99,6.37
+NSW,Fear of injury,5.97,5.02,6.91
+NSW,Physical job,4.62,6.33,3.08
+NSW,Weather,4.05,3.39,4.7
+NSW,Not good enough,4.47,4.5,4.51
+NSW,Too busy with children's activities,3.26,2.62,3.61
+NSW,Looking after children,3.21,2.24,4.11
+NSW,Not value for money,2.93,2.95,2.95
+NSW,No transport,3.14,2.35,3.63
+NSW,No facilities/clubs,2.14,2.25,1.82
+NSW,Too competitive,1.87,2.64,1.22
+NSW,Fear of discrimination,2.45,2.79,1.64
+NSW,Not familiar with activity,1.45,2.04,0.69
+NSW,Pregnancy,1.45,0.88,1.97
+NSW,No longer interested,0.72,1.02,0.46
+NSW,Not culturally appropriate,0.51,0.52,0.5
+NT,Poor health/injury,29.58,34.77,24.21
+NT,Increasing age/too old,10.4,20.46,0.0
+NT,Disability,10.86,17.37,4.13
+NT,Too lazy,17.99,21.89,13.95
+NT,Not enough time,15.06,19.93,10.03
+NT,Don't like sport,8.4,0.0,17.08
+NT,Not a priority,6.48,4.86,8.15
+NT,Nobody to do it with,1.39,0.0,2.84
+NT,Can't afford it,2.58,5.08,0.0
+NT,Fear of injury,2.69,5.29,0.0
+NT,Physical job,2.47,4.86,0.0
+NT,Weather,4.81,9.46,0.0
+NT,Not good enough,0.0,0.0,0.0
+NT,Too busy with children's activities,5.13,0.0,10.44
+NT,Looking after children,6.94,0.0,14.11
+NT,Not value for money,0.0,0.0,0.0
+NT,No transport,0.0,0.0,0.0
+NT,No facilities/clubs,2.47,4.86,0.0
+NT,Too competitive,2.5,4.92,0.0
+NT,Fear of discrimination,1.8,3.53,0.0
+NT,Not familiar with activity,0.0,0.0,0.0
+NT,Pregnancy,6.18,0.0,12.58
+NT,No longer interested,1.97,0.0,4.0
+NT,Not culturally appropriate,0.0,0.0,0.0
+QLD,Poor health/injury,30.14,22.99,36.49
+QLD,Increasing age/too old,22.31,22.19,22.91
+QLD,Disability,17.54,15.79,18.37
+QLD,Too lazy,14.05,11.03,17.07
+QLD,Not enough time,11.01,10.98,11.16
+QLD,Don't like sport,13.26,11.51,15.13
+QLD,Not a priority,11.72,13.76,9.7
+QLD,Nobody to do it with,7.39,6.03,8.16
+QLD,Can't afford it,7.55,5.3,9.13
+QLD,Fear of injury,6.36,5.52,7.27
+QLD,Physical job,6.77,8.9,5.01
+QLD,Weather,3.85,3.27,4.0
+QLD,Not good enough,4.73,4.82,4.29
+QLD,Too busy with children's activities,3.6,2.27,4.87
+QLD,Looking after children,3.67,1.98,5.26
+QLD,Not value for money,2.69,3.15,2.22
+QLD,No transport,2.02,1.77,1.66
+QLD,No facilities/clubs,1.88,2.37,1.35
+QLD,Too competitive,2.2,2.88,1.49
+QLD,Fear of discrimination,2.55,3.06,2.01
+QLD,Not familiar with activity,1.54,1.99,1.17
+QLD,Pregnancy,1.52,0.19,2.75
+QLD,No longer interested,0.66,0.32,0.99
+QLD,Not culturally appropriate,0.45,0.83,0.11
+SA,Poor health/injury,31.93,26.19,39.98
+SA,Increasing age/too old,21.67,22.89,20.5
+SA,Disability,21.06,18.67,24.55
+SA,Too lazy,13.99,13.83,13.92
+SA,Not enough time,12.15,13.16,10.19
+SA,Don't like sport,13.21,9.87,17.31
+SA,Not a priority,11.34,11.44,11.43
+SA,Nobody to do it with,8.07,8.63,7.02
+SA,Can't afford it,6.87,5.28,8.57
+SA,Fear of injury,4.14,2.94,5.78
+SA,Physical job,5.29,7.76,1.73
+SA,Weather,6.6,4.47,8.98
+SA,Not good enough,4.58,5.19,3.88
+SA,Too busy with children's activities,2.7,2.95,2.43
+SA,Looking after children,5.54,4.91,6.47
+SA,Not value for money,3.95,3.87,4.13
+SA,No transport,1.71,1.47,1.57
+SA,No facilities/clubs,1.67,1.6,1.8
+SA,Too competitive,1.9,1.17,2.89
+SA,Fear of discrimination,3.21,2.98,3.56
+SA,Not familiar with activity,0.89,0.0,1.57
+SA,Pregnancy,0.24,0.43,0.0
+SA,No longer interested,0.47,0.5,0.45
+SA,Not culturally appropriate,0.49,0.37,0.66
+TAS,Poor health/injury,23.34,21.62,25.91
+TAS,Increasing age/too old,15.45,19.79,9.89
+TAS,Disability,12.33,10.0,15.58
+TAS,Too lazy,16.61,18.73,14.01
+TAS,Not enough time,10.2,11.36,7.53
+TAS,Don't like sport,12.99,13.35,12.67
+TAS,Not a priority,14.61,19.52,8.29
+TAS,Nobody to do it with,7.98,7.35,8.91
+TAS,Can't afford it,8.95,8.04,10.25
+TAS,Fear of injury,6.71,8.47,4.47
+TAS,Physical job,6.77,9.59,3.12
+TAS,Weather,6.07,7.07,4.81
+TAS,Not good enough,10.46,15.93,3.35
+TAS,Too busy with children's activities,4.89,6.13,3.3
+TAS,Looking after children,2.08,1.9,2.35
+TAS,Not value for money,4.12,5.42,2.45
+TAS,No transport,0.49,0.87,0.0
+TAS,No facilities/clubs,3.47,6.12,0.0
+TAS,Too competitive,6.49,8.64,3.73
+TAS,Fear of discrimination,2.91,2.05,4.08
+TAS,Not familiar with activity,3.06,4.43,1.28
+TAS,Pregnancy,1.04,0.0,2.43
+TAS,No longer interested,1.76,2.14,1.28
+TAS,Not culturally appropriate,0.0,0.0,0.0
+VIC,Poor health/injury,30.1,24.65,34.25
+VIC,Increasing age/too old,20.05,17.12,23.2
+VIC,Disability,16.3,12.26,19.76
+VIC,Too lazy,16.17,15.86,16.49
+VIC,Not enough time,16.07,14.63,17.67
+VIC,Don't like sport,14.97,11.1,18.64
+VIC,Not a priority,13.0,13.93,12.57
+VIC,Nobody to do it with,7.77,7.25,8.24
+VIC,Can't afford it,5.75,4.03,6.64
+VIC,Fear of injury,6.94,8.93,5.41
+VIC,Physical job,5.45,7.05,3.69
+VIC,Weather,5.92,5.29,6.63
+VIC,Not good enough,4.61,4.8,4.35
+VIC,Too busy with children's activities,2.63,2.73,2.63
+VIC,Looking after children,2.92,2.36,3.49
+VIC,Not value for money,3.93,4.62,3.07
+VIC,No transport,2.19,1.12,3.19
+VIC,No facilities/clubs,2.2,1.91,2.4
+VIC,Too competitive,3.08,3.28,2.89
+VIC,Fear of discrimination,2.57,2.37,2.82
+VIC,Not familiar with activity,1.69,1.96,1.5
+VIC,Pregnancy,1.37,0.92,1.8
+VIC,No longer interested,1.4,0.93,1.86
+VIC,Not culturally appropriate,0.86,0.81,0.92
+WA,Poor health/injury,26.41,21.92,30.79
+WA,Increasing age/too old,22.24,16.38,28.04
+WA,Disability,13.57,9.91,16.91
+WA,Too lazy,14.66,13.58,15.95
+WA,Not enough time,15.3,15.92,15.05
+WA,Don't like sport,13.7,10.84,16.59
+WA,Not a priority,10.8,12.37,9.59
+WA,Nobody to do it with,7.27,7.31,7.39
+WA,Can't afford it,5.59,4.87,6.36
+WA,Fear of injury,6.24,8.68,3.87
+WA,Physical job,7.92,12.19,3.8
+WA,Weather,4.82,3.86,5.8
+WA,Not good enough,3.75,3.89,3.7
+WA,Too busy with children's activities,3.18,1.94,4.37
+WA,Looking after children,3.07,2.41,3.74
+WA,Not value for money,4.65,5.18,3.86
+WA,No transport,3.18,2.0,4.31
+WA,No facilities/clubs,2.98,4.07,2.04
+WA,Too competitive,2.37,2.32,2.48
+WA,Fear of discrimination,2.35,1.93,2.78
+WA,Not familiar with activity,1.23,1.34,1.16
+WA,Pregnancy,0.87,0.43,1.28
+WA,No longer interested,0.59,0.71,0.48
+WA,Not culturally appropriate,0.62,1.32,0.0
