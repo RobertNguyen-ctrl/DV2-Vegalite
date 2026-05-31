@@ -1,273 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Australian Sport & Physical Activity</title>
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/styles.css">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f7f9fc; color: #1a1a2e; line-height: 1.7; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How Active Is Australia? — AusPlay 2025</title>
+<meta name="author" content="FIT2179 Data Visualisation 2 — Monash University"/>
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #0d2137 0%, #1a4a7a 60%, #1e6fa5 100%);
-      color: white; padding: 80px 60px 60px; position: relative; overflow: hidden;
-    }
-    .hero::after { content: "🏅"; position: absolute; right: 80px; top: 40px; font-size: 120px; opacity: 0.15; }
-    .hero-tag { display: block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 auto 20px; width: fit-content; }
-    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; max-width: 700px; margin: 0 auto 20px; }    .hero h1 span { color: #7ec8e3; }
-    .hero-sub { font-size: 1.05rem; opacity: 0.85; max-width: 620px; margin: 0 auto 36px; }
-    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
-    .hero-stat { border-left: 3px solid #7ec8e3; padding-left: 14px; }
-    .hero-stat .num { font-size: 1.8rem; font-weight: 700; color: #7ec8e3; }
-    .hero-stat .lbl { font-size: 0.8rem; opacity: 0.75; }
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    /* SECTION HEADER */
-    .section-header { max-width: 1100px; margin: 48px auto 0; padding: 0 40px; text-align: center !important; display: flex; flex-direction: column; align-items: center; }
-    .section-header h2 {
-      font-family: 'Merriweather', serif;
-      font-size: 1.5rem;
-      color: #0d2137;
-      display: block;
-      padding-bottom: 6px;
-      margin-bottom: 8px;
-    }
-    .section-header h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #1e6fa5;
-      margin: 8px auto 0;
-    }
-    .section-header p { color: #555; font-size: 0.95rem; }
-
-    /* MAIN LAYOUT: text left + 2 charts stacked right */
-    .section-body {
-      max-width: 1100px;
-      margin: 24px auto 0;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    /* TEXT COLUMN */
-    .s-text h3 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: #0d2137; margin-bottom: 12px; line-height: 1.4; }
-    .s-text p { color: #444; font-size: 0.93rem; margin-bottom: 10px; }
-    .s-text .highlight { 
-      background: #e8f4fd; 
-      border-left: 4px solid #1e6fa5; 
-      padding: 12px 16px; 
-      border-radius: 0 8px 8px 0; 
-      font-size: 0.88rem; 
-      color: #1a3a5c; 
-      margin-top: 14px;
-      width: 100%;
-      box-sizing: border-box;
-      display: block;
-    }
-    .s-text .hihghlight strong { color: #1e6fa5; }
-
-    /* CHARTS COLUMN */
-    .s-charts { display: flex; flex-direction: column; gap: 20px; align-self: start; align-items: flex-start; width: 100%; }
-
-    .chart-card { background: white; border-radius: 14px; padding: 20px 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); flex-shrink: 0; width: fit-content; min-width: 100%; }
-    .chart-card .fig-label { font-size: 0.75rem; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
-
-    /* DIVIDER */
-    .divider { max-width: 1100px; margin: 44px auto 0; padding: 0 40px; border-top: 1px solid #e0e7ef; }
-
-    /* FOOTER */
-    footer { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.82rem; margin-top: 60px; border-top: 1px solid #e0e7ef; }
-  </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-tag">AusPlay Survey · 2023–24</div>
-  <h1>How <span>Active</span> is Australia?</h1>
-  <p class="hero-sub">Exploring sport and physical activity participation across states, age groups, sports, and demographics.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="num">64.3%</div><div class="lbl">National participation rate</div></div>
-    <div class="hero-stat"><div class="num">16.8M</div><div class="lbl">Active Australians (15+)</div></div>
-    <div class="hero-stat"><div class="num">ACT</div><div class="lbl">Most active state (72.1%)</div></div>
-    <div class="hero-stat"><div class="num">Walking</div><div class="lbl">Most popular activity</div></div>
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="kicker">AusPlay Survey · 2025 · Australian Sports Commission</span>
+    <h1>How <em>active</em> is Australia, really?</h1>
+    <p class="lede">Nine in ten Australian adults do some form of sport or physical activity each year —
+      but where they live, how old they are, and whether they're a man or a woman shape <em>what</em>
+      they play far more than you might expect.</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n">85.3%</div><div class="l">active at least once a year</div></div>
+      <div class="hstat"><div class="n">66.0%</div><div class="l">active at least once a week</div></div>
+      <div class="hstat"><div class="n">Walking</div><div class="l">nation's #1 activity (50%)</div></div>
+      <div class="hstat"><div class="n">ACT · NT</div><div class="l">most active (~91%)</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ INTRO ═══ -->
+<section class="section" style="margin-top:48px;">
+  <div class="grid even">
+    <div class="prose">
+      <h3>Why this matters</h3>
+      <p>Physical inactivity is one of the largest preventable contributors to chronic disease in Australia,
+        and governments spend hundreds of millions encouraging participation. But "being active" looks
+        nothing like it did a generation ago — organised club sport is no longer the centre of the story.</p>
+      <p>This page is for an <strong>everyday Australian audience</strong>: anyone curious about how their
+        own habits compare to the country's. No statistics knowledge assumed.</p>
+    </div>
+    <div class="prose">
+      <h3>What you're looking at</h3>
+      <p>Every chart is built from <strong>AusPlay</strong>, Australia's national physical-activity survey
+        (~40,000 adults per year). For the map we combine it with <strong>ABS population estimates</strong>
+        so a participation <em>rate</em> can be turned into an actual <em>number of people</em>.</p>
+      <p>Hover any chart for exact figures. The map is interactive — use the dropdown to switch measures,
+        and click any state to see its top activities and barriers.</p>
+    </div>
   </div>
 </section>
 
-<!-- ══ SECTION 1 ══ -->
-<div class="section-header">
-  <h2>Where & What — Location and Sport Choices</h2>
-  <p>Participation rates by state, and Australia's most popular activities.</p>
+<div class="divider"><hr/></div>
+
+<!-- ═══ SECTION 1 — WHERE ═══ -->
+<div class="sec-head">
+  <span class="num">01 — Where</span>
+  <h2>The geography of an active nation</h2>
+  <p class="sub">Participation is high everywhere, but the small territories punch well above their weight.</p>
 </div>
 
-<!-- Fig 1 + Text: Side by side -->
-<div class="section-body">
-  <div class="s-text">
-    <h3>ACT leads the nation — Walking dominates everywhere</h3>
-    <p>The <strong>ACT (72.1%)</strong> is Australia's most active territory, nearly 18 points above the <strong>NT (54.7%)</strong>. This gap reflects deep structural differences: ACT has Australia's highest median income, most educated workforce, and best access to green spaces and cycling infrastructure.</p>
-    <p>Nationally, <strong>Walking (6.8M)</strong> has nearly double the participants of Swimming (3.9M) — the #2 sport. The top 5 activities are all individual and require no registration, no fixed schedule, and minimal cost.</p>
-    <p>Organised team sports like AFL, Netball, and Cricket don't appear until positions 10–13 — a dramatic shift from how Australians thought about sport just 20 years ago.</p>
+<!-- Map + text -->
+<div class="grid text-right">
+  <div class="cards">
+    <div class="card">
+      <div class="figlabel">Fig 1 · Interactive map</div>
+      <div class="figtitle">Adult participation across the states &amp; territories</div>
+      <div class="chart-host" id="chart-map"></div>
+      <p class="caption"><b>Try it:</b> switch the dropdown between yearly rate, weekly rate, or estimated
+        active people (rate × ABS population). Emoji markers show each state's top 5 activities — size
+        reflects participation share. Hover for exact figures.</p>
+    </div>
   </div>
-  <div class="s-charts">
-    <div class="chart-card">
-      <div class="fig-label">Fig 1 — Participation Rate by State (%)</div>
-      <div id="chart1"></div>
+  <div class="prose">
+    <h3>The ACT and NT lead — but for opposite reasons</h3>
+    <p>The <strong>ACT (91.3%)</strong> and <strong>Northern Territory (91.6%)</strong> top the nation,
+      both well above the <strong>85.3% national</strong> average. The ACT's lead is driven by income,
+      education and cycle-friendly Canberra; the NT's by a young population and an outdoor lifestyle.</p>
+    <p>Switch the map to <em>"active people"</em> and the picture inverts: tiny territories shrink to almost
+      nothing, while <strong>New South Wales alone accounts for ~7.2 million active adults</strong> — more
+      than the next two states combined.</p>
+    <div class="note"><strong>Key insight:</strong> A high participation <i>rate</i> and a large active
+      <i>population</i> are different things. Policy that chases the headline percentage can overlook where
+      the most people actually are.</div>
+  </div>
+</div>
+
+<!-- State explorer full width -->
+<div class="grid full" style="margin-top:24px;">
+  <div class="card">
+    <div class="figlabel">Fig 2 · Interactive explorer — click a state</div>
+    <div class="figtitle">Every state has its own activity profile and its own obstacles</div>
+    <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;">
+      <div style="flex-shrink:0;min-width:220px;">
+        <div id="chart-stateexp-map"></div>
+        <div style="margin-top:10px;padding:10px 12px;background:#f0f5fa;border-radius:8px;font-size:0.82rem;color:#54657a;line-height:1.5;max-width:260px;">
+          <strong style="color:#0d2137;display:block;margin-bottom:4px;">What to look for</strong>
+          The <strong style="color:#1e6fa5;">ACT</strong> tops activities like bush walking — reflecting its educated, outdoorsy population.
+          The <strong style="color:#1e6fa5;">NT</strong> leads in gym despite remoteness.
+          <strong style="color:#c45c6a;">Poor health</strong> is the #1 barrier in every state — but in the ACT,
+          <strong style="color:#c45c6a;">time pressure</strong> overtakes it.
+        </div>
+      </div>
+      <div id="chart-stateexp-bars" style="flex:1;min-width:280px;padding-top:4px;"></div>
+    </div>
+    <p class="caption" style="margin-top:14px;"><b>Try it:</b> click any state on the map — both panels
+      rebuild instantly showing that state's top activities (blue) and top barriers (coral).</p>
+  </div>
+</div>
+
+<!-- Bivariate -->
+<div class="grid full" style="margin-top:24px;">
+  <div class="card">
+    <div class="figlabel">Fig 3 · Bivariate choropleth</div>
+    <div class="figtitle">Participation rate × weekly commitment — two measures, one map</div>
+    <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px;">
+      <p style="flex:1;min-width:280px;font-size:0.93rem;color:#34465b;margin:0;line-height:1.65;">
+        A single colour can only tell half the story. This <strong>bivariate map</strong> encodes
+        <em>two</em> measures at once: how many people are active at all (left→right) and how
+        <em>committed</em> they are — active three or more times a week (bottom→top).
+        The <strong>ACT</strong> sits in the dark top-right corner: not just broadly active, but intensely so.
+        Hover a square in the 3×3 key to highlight matching states.
+      </p>
+    </div>
+    <div class="chart-host" id="chart-bivariate"></div>
+    <p class="caption">Colour encodes two AusPlay measures simultaneously (annual rate × 3+/week rate), binned into thirds.
+      Source: AusPlay 2025 + ABS Sep 2024. Darkest = high participation &amp; high commitment; palest = neither.</p>
+  </div>
+</div>
+
+<div class="divider"><hr/></div>
+
+<!-- ═══ SECTION 2 — WHAT ═══ -->
+<div class="sec-head">
+  <span class="num">02 — What</span>
+  <h2>Walking won. Everything else is fighting for second.</h2>
+  <p class="sub">Australia's most popular activities are overwhelmingly individual, informal and free.</p>
+</div>
+
+<div class="grid text-left">
+  <div class="prose">
+    <h3>The top of the table is unrecognisable from 20 years ago</h3>
+    <p><strong>Recreational walking (50.2%)</strong> is in a league of its own — done by half of all
+      adults. <strong>Fitness/gym (34.1%)</strong> is second, followed by bush walking, running and swimming.</p>
+    <p>Notice what <em>isn't</em> near the top. Australia's iconic team sports — Australian football,
+      cricket, netball — sit far down the list. The activities Australians actually do most are the ones
+      that need no club, no fixture and no membership fee.</p>
+    <div class="note"><strong>Key insight:</strong> The modern Australian "athlete" is a solo walker,
+      not a weekend club player. Convenience and flexibility beat tradition.</div>
+  </div>
+  <div class="cards">
+    <div class="card">
+      <div class="figlabel">Fig 4 · Ranked bar</div>
+      <div class="figtitle">Top 20 activities by participation, 2025</div>
+      <div class="chart-host" id="chart-topsports"></div>
+      <p class="caption">Share of Australians aged 15+ active at least once in the year. Source: AusPlay 2025.</p>
     </div>
   </div>
 </div>
 
-<!-- Fig 2: Full width -->
-<div class="section-body" style="grid-template-columns: 1fr;">
-  <div class="s-charts" style="width: 100%;">
-    <div class="chart-card" style="width: 100%; min-width: 100%;">
-      <div class="fig-label">Fig 2 — Top 20 Sports by Participants</div>
-      <div id="chart2"></div>
-    </div>
-  </div>
-</div>
-<div class="highlight" style="max-width: 1020px; margin: 25px auto 0; padding: 0 40px;">
-  <strong>Key insight:</strong> Geography and socioeconomics are powerful predictors of activity. States with warmer climates, higher incomes, and better infrastructure consistently outperform the national average.
-</div>
-<div class="divider"></div>
-
-
-
-<!-- ══ SECTION 2 ══ -->
-<div class="section-header">
-  <h2>Who plays — Age & Gender patterns</h2>
-  <p>Sport choices differ dramatically across age groups and between genders.</p>
-</div>
-<div class="section-body">
-  <div class="s-charts">
-    <div class="chart-card">
-      <div class="fig-label">Fig 3 — Participation by Sport × Age Group</div>
-      <div id="chart3"></div>
-    </div>
-    <div class="chart-card">
-      <div class="fig-label">Fig 4 — Gender Gap by Sport (%)</div>
-      <div id="chart4"></div>
-    </div>
-  </div>
-  <div class="s-text">
-    <h3>Age & gender shape sport choices more than any other factor</h3>
-    <p>The heatmap shows <strong>Gym & Fitness</strong> dominates at 15–24 (48%) but collapses to just 12% at 65+. This isn't just aging — it reflects a generational identity shift: young Australians treat fitness as lifestyle, older ones treat walking as medicine.</p>
-    <p><strong>Golf</strong> is the only sport that grows continuously with age, peaking at 65+ — making it uniquely positioned as Australia's "retirement sport." Meanwhile <strong>AFL and Netball</strong> effectively cease to exist past age 44.</p>
-    <p>The gender diverging chart reveals that the most gender-skewed sports are all <em>team</em> sports. The least skewed are all <em>individual</em> activities — suggesting social and cultural norms around team sport are far more gendered than physical activity itself.</p>
-    <div class="highlight"><strong>Key insight:</strong> Australia needs age-specific sport pathways. Retaining gym-goers past 35 and converting AFL/Netball players into lifelong active participants are two of the biggest untapped opportunities in sport policy.</div>
+<div class="bignote">
+  <div class="inner">
+    <div class="big">50%</div>
+    <div class="txt"><strong>Half the country walks for recreation.</strong> No other single activity
+      reaches even 35%. When we talk about "sport" in Australia, we are mostly talking about people
+      going for a walk.</div>
   </div>
 </div>
 
-<div class="divider"></div>
+<div class="divider"><hr/></div>
 
-
-<!-- ══ SECTION 3 ══ -->
-<div class="section-header">
-  <h2>Trends & Behaviour — How participation is changing</h2>
-  <p>Long-term growth, COVID impact, and the shift from organised to informal sport.</p>
+<!-- ═══ SECTION 3 — WHO ═══ -->
+<div class="sec-head">
+  <span class="num">03 — Who</span>
+  <h2>Age and gender shape sport more than anything else</h2>
+  <p class="sub">The same country contains very different sporting lives depending on who you are.</p>
 </div>
 
-<div class="section-body">
-  <div class="s-text">
-    <h3>COVID reshaped Australia's activity habits — permanently</h3>
-    <p>The 2020 crash to <strong>59.2%</strong> was the sharpest single-year decline on record. But the recovery wasn't simply a return to normal — it was a <em>restructuring</em>. Activities that could be done alone outdoors (walking, cycling, running) surged and never came back down.</p>
-    <p>By 2024, Australia hit a record <strong>64.3%</strong> — but this growth is concentrated in informal activity. The stacked bar shows Walking (94% informal) and Running (81%) are essentially ungoverned activities with no club, no fixture, no membership fee.</p>
-    <p>This creates a structural crisis for sporting bodies: participation is up, but affiliated membership — and therefore revenue and influence — is stagnating or declining for most traditional sports.</p>
+<!--
+  ══════════════════════════════════════════════════════════════
+  PATCH cho index.html — Section 03 (Who) layout fix
+  
+  VẤN ĐỀ: Fig 5 (heatmap) và Fig 6 (butterfly) cùng 1 column trái
+           → Fig 6 dài ~800px bị overflow và annotation Golf lồi ra ngoài
+  
+  FIX: Tách Fig 6 ra thành full-width row riêng bên dưới
+  
+  CÁCH DÙNG:
+    1. Trong index.html, tìm đoạn BẮT ĐẦU bằng:
+         <div class="grid text-right">
+           <div class="cards">
+             <div class="card">
+               <div class="figlabel">Fig 5
+    
+    2. Xoá từ đó đến hết thẻ </div> đóng của grid text-right đó
+       (bao gồm cả Fig 5 card, Fig 6 card, và prose block)
+    
+    3. Thay bằng toàn bộ nội dung trong file này (bên dưới)
+  ══════════════════════════════════════════════════════════════
+-->
+
+<!-- ── Fig 5 + prose (2-column: chart left, prose right) ── -->
+<!-- Section 03 Who — custom 2-col layout:
+     Left col:  prose (top) + Fig 5 heatmap (bottom)
+     Right col: Fig 6 butterfly (full height, spans both rows)
+-->
+<div style="max-width:var(--maxw);margin:26px auto 0;padding:0 32px;
+     display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;
+     gap:30px;align-items:start;">
+
+  <!-- LEFT TOP: prose -->
+  <div class="prose" style="grid-column:1;grid-row:1;">
+    <h3>Every sport has a shape across the life course</h3>
+    <p>The heatmap shows <strong>Gym &amp; Fitness</strong> dominates at 15&#8211;24 but fades with age.
+      <strong>Walking</strong> does the opposite &#8212; it grows continuously into the 60s.
+      <strong>Golf</strong> is the only sport that simply keeps growing older with its players.</p>
+    <p>The butterfly shows the gender story is just as sharp. <strong>Pilates, yoga and walking</strong>
+      lean strongly female; <strong>football, golf and cycling</strong> lean male. The activities closest
+      to the centre &#8212; swimming, bush walking &#8212; are the ones that genuinely belong to everyone.</p>
+    <div class="note"><strong>Key insight:</strong> There is no single &#8220;Australian participant.&#8221;
+      Effective programs are age- and gender-specific, not one-size-fits-all.</div>
   </div>
-  <div class="s-charts" style="width: auto; align-items: flex-start;">
-    <div class="chart-card">
-      <div class="fig-label">Fig 5 — National Participation Rate 2016–2024</div>
-      <div id="chart5"></div>
-    </div>
+
+  <!-- RIGHT: Fig 6 butterfly (spans both rows) -->
+  <div class="card" style="grid-column:2;grid-row:1/3;align-self:stretch;">
+    <div class="figlabel">Fig 6 &middot; Gender butterfly</div>
+    <div class="figtitle">Men and women play different games</div>
+    <div class="chart-host" id="chart-gender"></div>
+    <p class="caption">Female participation extends left (coral), male to the right (blue), off a shared centre axis. <b>Walking and Pilates lean strongly female (−15pp, −12pp); Football and Golf lean strongly male (+6pp). Activities within the ±2pp shaded zone — Swimming, Bush walking, Fitness/Gym — belong equally to both genders.</b> Numbers show the gap in percentage points. Source: AusPlay 2025.</p>
+  </div>
+
+  <!-- LEFT BOTTOM: Fig 5 heatmap -->
+  <div class="card" style="grid-column:1;grid-row:2;">
+    <div class="figlabel">Fig 5 &middot; Heatmap</div>
+    <div class="figtitle">How each activity rises and falls with age</div>
+    <div class="chart-host" id="chart-ageheat"></div>
+    <p class="caption">Darker = higher participation. Read each row left-to-right to see an activity's life-course arc. <b>Gym peaks at 18–24 then fades; Walking grows into the 60s; Golf is the only sport that keeps rising with age.</b> Source: AusPlay 2025.</p>
+  </div>
+
+</div>
+
+<!-- Sport explorer -->
+<div class="grid full" style="margin-top:24px;">
+  <div class="card">
+    <div class="figlabel">Fig 7 · Activity explorer — choose an activity</div>
+    <div class="figtitle">One Activity, Four Perspectives</div>
+    <div class="chart-host" id="chart-sportexp"></div>
+    <p class="caption"><b>Try it:</b> pick any activity from the dropdown — all four panels update
+      together: its age curve, three-year trend, gender split, and organised vs informal setting.
+      Combines four idioms through a single selection. Source: AusPlay, all rounds.</p>
   </div>
 </div>
 
-<div class="highlight" style="max-width: 1100px; margin: 20px auto 0; padding: 0 40px;">
-  <strong>Key insight:</strong> COVID didn't kill Australian sport — it accelerated a trend already underway. The future belongs to flexible, low-cost, individual activities. Clubs that don't adapt risk irrelevance.
+<div class="divider"><hr/></div>
+
+<!-- ═══ SECTION 4 — HOW ═══ -->
+<div class="sec-head">
+  <span class="num">04 — How</span>
+  <h2>Informal beats organised — and it's growing</h2>
+  <p class="sub">Most activity happens outside any club or competition, and that gap widens with age.</p>
 </div>
 
-<!-- Fig 6: Full width -->
-<div class="section-body" style="grid-template-columns: 1fr;">
-  <div class="s-charts" style="width: 100%;">
-    <div class="chart-card" style="padding: 20px 20px; width: 100%; min-width: 100%;">
-      <div class="fig-label">Fig 6 — Organised vs Informal by Sport</div>
-      <div id="chart6"></div>
-    </div>
+<div class="grid text-left">
+  <div class="prose">
+    <h3>Clubs are no longer where activity lives</h3>
+    <p>Among teenagers, organised and mixed settings still dominate. But by the time Australians reach
+      their 50s and 60s, activity is overwhelmingly <strong>informal</strong> — done alone, on their own
+      schedule, with no membership fee.</p>
+    <p>This creates a structural problem for sporting bodies: overall participation is up, but affiliated
+      membership — and therefore revenue and influence — is stagnating or declining for most
+      traditional sports.</p>
+    <div class="note"><strong>Key insight:</strong> Participation is healthy, but it's draining out of
+      clubs. That's a challenge for the bodies that depend on membership to survive.</div>
   </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- ══ SECTION 4 ══ -->
-<div class="section-header">
-  <h2>Why & Why Not — Motivations and Barriers</h2>
-  <p>What drives Australians to be active — and what holds them back?</p>
-</div>
-<div class="section-body">
-  <div class="s-text">
-    <h3>Health drives participation — time and cost block it</h3>
-    <p><strong>Physical health (84%)</strong> and <strong>mental wellbeing (71%)</strong> are the top reasons Australians exercise. Enjoyment and social connection also rank highly, suggesting sport serves both body and mind.</p>
-    <p>On the barrier side, <strong>"Not enough time" (43%)</strong> is the dominant obstacle — cited across all age groups. <strong>Cost (31%)</strong> and <strong>injury/health concerns (28%)</strong> follow.</p>
-    <p>Notably, <strong>"Not interested" (18%)</strong> is relatively low — most inactive Australians want to be active but face practical barriers rather than motivational ones.</p>
-    <div class="highlight">
-      <strong>Key insight:</strong> Policy should focus on reducing time and cost barriers — the motivation to participate is already there for most Australians.
-    </div>
-  </div>
-  <div class="s-charts">
-    <div class="chart-card">
-      <div class="fig-label">Fig 7 — Reasons for Participating (%)</div>
-      <div id="chart7"></div>
-    </div>
-    <div class="chart-card">
-      <div class="fig-label">Fig 8 — Barriers to Participation (%)</div>
-      <div id="chart8"></div>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- ══ SECTION 5 ══ -->
-<div class="section-header">
-  <h2>Rising & Falling — Which sports are growing?</h2>
-  <p>Year-on-year changes reveal the sports gaining and losing participants.</p>
-</div>
-<div class="section-body">
-  <div class="s-charts">
-    <div class="chart-card">
-      <div class="fig-label">Fig 9 — Fastest Growing Sports (YoY Change %)</div>
-      <div id="chart9"></div>
-    </div>
-    <div class="chart-card">
-      <div class="fig-label">Fig 10 — Participation by Age Group Over Time</div>
-      <div id="chart10"></div>
-    </div>
-  </div>
-  <div class="s-text">
-  <h3>Padel & Pickleball are rewriting the sports landscape</h3>
-  <p><strong>Padel (+41%)</strong> and <strong>Pickleball (+38%)</strong> are growing faster than any traditional sport in Australian history. Both are social, low-impact, easy to learn, and playable in smaller spaces — ticking every box that modern participants demand.</p>
-  <p>The decline of <strong>Cricket (−8%)</strong> and <strong>Lawn Bowls (−11%)</strong> reflects an aging, non-renewing participant base. Both sports have failed to attract under-35s at scale, and their summer/weekly scheduling conflicts with increasingly fragmented leisure time.</p>
-  <p>The age-group trend chart shows the most important long-term story: <strong>65+ participation has grown by 8 percentage points since 2016</strong> — the largest gain of any group. Australia's aging population is becoming more active, not less. Youth (15–24) remains flat, suggesting significant untapped potential.</p>
-  <div class="highlight"><strong>Key insight:</strong> The next decade of Australian sport will be defined by two groups: emerging social racket sports capturing 25–45 year olds, and active-ageing programs for the 65+ boom. Traditional sports associations that fail to evolve risk irrelevance within a generation.</div>
+  <div class="cards">
+    <div class="card">
+      <div class="figlabel">Fig 8 · Layered area</div>
+      <div class="figtitle">How sport settings shift across the life course</div>
+      <div class="chart-host" id="chart-lifecycle"></div>
+      <p class="caption">Share of each age group active in informal-only, mixed, and organised-only
+        settings. Source: AusPlay 2023/24.</p>
     </div>
   </div>
 </div>
 
-<script src="js/vega_lite_vis.js"></script>
+<div class="divider"><hr/></div>
 
+<!-- ═══ SECTION 5 — CHANGING ═══ -->
+<div class="sec-head">
+  <span class="num">05 — Changing</span>
+  <h2>Who's rising, who's slipping</h2>
+  <p class="sub">Rank shifts and year-on-year movement reveal where Australian activity is heading.</p>
+</div>
+
+<div class="grid text-right">
+  <div class="cards">
+    <div class="card">
+      <div class="figlabel">Fig 9 · Bump / rank-slope</div>
+      <div class="figtitle">How the top activities reshuffled, 2023/24 → 2025</div>
+      <div class="chart-host" id="chart-bump"></div>
+      <p class="caption">Each line tracks one activity's rank across three survey rounds.
+        Blue = climbed, coral = slipped, grey = held. Source: AusPlay 2023/24, 2024/25, 2025.</p>
+    </div>
+  </div>
+  <div class="prose">
+    <h3>Fitness is surging; the old guard is drifting down</h3>
+    <p><strong>Fitness/gym (+3.8pp)</strong> and <strong>Pilates (+1.4pp)</strong> are the clear
+      winners, climbing the rankings while traditional pursuits soften. <strong>Pickleball and padel</strong>
+      nearly doubled — the fastest proportional growth of any activity.</p>
+    <p>Football, cycling and basketball all edged down. The bump chart shows these are part of a
+      consistent direction: structured, scheduled sport is slowly giving ground to flexible fitness.</p>
+    <div class="note"><strong>Key insight:</strong> The momentum is with low-commitment fitness and
+      emerging social racket sports — exactly the activities that fit fragmented modern schedules.</div>
+  </div>
+</div>
+
+<div class="divider"><hr/></div>
+
+<!-- ═══ SECTION 6 — WHY ═══ -->
+<div class="sec-head">
+  <span class="num">06 — Why &amp; why not</span>
+  <h2>What pulls Australians in — and what holds them back</h2>
+  <p class="sub">Motivations and barriers differ by gender in telling ways.</p>
+</div>
+
+<div class="grid full">
+  <div class="card">
+    <div class="figlabel">Fig 10 · Connected scatter — brush to filter</div>
+    <div class="figtitle">Where men and women agree on motivation and barriers — and where they don't</div>
+    <div class="chart-host" id="chart-mbscatter"></div>
+    <p class="caption"><b>Try it:</b> every dot is a reason — motivations (blue) and barriers (coral)
+      — placed by how often men (x-axis) and women (y-axis) give it. Dots above the dashed line lean
+      female; below lean male. <strong>Drag a box</strong> to select a cluster and the right-hand bar
+      ranks just those reasons by overall share. <strong>Hover</strong> a dot to label it.
+      Source: AusPlay 2025.</p>
+  </div>
+</div>
+
+<div class="grid full" style="margin-top:16px;">
+  <div class="prose">
+    <h3>People want to move — life gets in the way</h3>
+    <p><strong>Physical health</strong> and <strong>fun</strong> are the top motivations for both men and
+      women. Women cite mental health and weight management notably more. On the barrier side, the leading
+      obstacles are poor health/injury and increasing age — not disinterest. Relatively few people simply
+      "don't like sport."</p>
+    <div class="note"><strong>Key insight:</strong> The motivation to be active is already there for most
+      Australians. Removing practical barriers — accessible, low-cost, low-impact options — would do more
+      than any campaign trying to convince people exercise is good for them.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HTML ADDITIONS for index.html
+     Two new chart cards + instructions for where to place them
+     ============================================================ -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     Fig 11 — Entity-type stacked bar
+     PLACE: Inside Section 04 (How), right after the closing
+     </div> of the chart-lifecycle card.
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="grid full" style="margin-top:24px;">
+  <div class="card">
+    <div class="figlabel">Fig 11 · Stacked bar</div>
+    <div class="figtitle">Where people do organised sport — it depends entirely on the activity</div>
+    <div class="chart-host" id="chart-entitytype"></div>
+    <p class="caption">Each bar shows where the <em>organised</em> portion of an activity takes
+      place, as a share of all Australian adults. <b>Netball and football</b> are almost entirely
+      club-based. <b>Pilates and Yoga</b> happen almost entirely in commercial studios or with
+      personal trainers. Traditional "club sport" is a shrinking slice of how Australians move.
+      Source: AusPlay 2025.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     Also add a note about Fig 12 to the Section 03 prose block.
+     FIND the existing prose div in the text-right grid of Section 03
+     and ADD this note block inside the .prose div:
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- INSERT after the existing .note block in section 03 prose: -->
+
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
-  <p>FIT2179 Data Visualisation 2 · Monash University · 2026</p>
-  <p style="margin-top:6px">Data source: AusPlay Survey 2023–24, Australian Sports Commission</p>
+  <h4>About this visualisation</h4>
+  <div class="meta">
+    <div>
+      <p><strong>Domain.</strong> Sport &amp; physical activity participation in Australia.</p>
+      <p><strong>Author.</strong> FIT2179 Data Visualisation 2, Monash University, 2026.</p>
+      <p><strong>Built with</strong> Vega-Lite v5, HTML/CSS.</p>
+    </div>
+    <div>
+      <p><strong>Source 1 — AusPlay Survey 2025.</strong> Australian Sports Commission / Clearinghouse
+        for Sport.
+        <a href="https://www.clearinghouseforsport.gov.au/research/ausplay" target="_blank" rel="noopener">clearinghouseforsport.gov.au</a></p>
+      <p><strong>Source 2 — Estimated Resident Population, 30 Sep 2024.</strong> Australian Bureau of
+        Statistics.
+        <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release" target="_blank" rel="noopener">abs.gov.au</a></p>
+    </div>
+    <div>
+      <p><strong>How it was made.</strong> 17 AusPlay CSV tables were reshaped into a compact JSON.
+        The map's "active people" count is AusPlay rate × ABS population; the bivariate map mixes
+        annual rate and 3+/week rate.</p>
+      <p><strong>AI acknowledgement.</strong> Generative AI assisted with code and prose editing;
+        all data, chart designs and analysis were verified by the author.</p>
+    </div>
+  </div>
+  <p class="fineprint">ABS data © Commonwealth of Australia, CC BY 4.0.
+    AusPlay data © Australian Sports Commission.</p>
 </footer>
 
-
+<script src="js/charts.js"></script>
 </body>
 </html>
+
