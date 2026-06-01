@@ -56,7 +56,7 @@
   </div>
 </section>
 
-<div class="divider"><hr/></div>
+
 
 <!-- ═══ SECTION 1 — WHERE ═══ -->
 <div class="sec-head">
@@ -94,23 +94,28 @@
 <!-- State explorer full width -->
 <div class="grid full" style="margin-top:24px;">
   <div class="card">
-    <div class="figlabel">Fig 2 · Interactive explorer — click a state</div>
-    <div class="figtitle">Every state has its own activity profile and its own obstacles</div>
+    <div class="figlabel">Fig 2 · Interactive explorer — click any state on the map to update both charts</div>
+    <div class="figtitle">Every state has its own activity profile and its own obstacles <span style="font-size:0.75rem;font-weight:500;color:#1e6fa5;background:#e8f4fd;padding:3px 10px;border-radius:20px;margin-left:8px;vertical-align:middle;">🖱 Click a state</span></div>
     <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;">
-      <div style="flex-shrink:0;min-width:220px;">
+      <div id="chart-stateexp-bars" style="flex:1;min-width:280px;padding-top:4px;"></div>
+      <div style="flex-shrink:0;width:200px;">
         <div id="chart-stateexp-map"></div>
-        <div style="margin-top:10px;padding:10px 12px;background:#f0f5fa;border-radius:8px;font-size:0.82rem;color:#54657a;line-height:1.5;max-width:260px;">
+        <div style="margin-top:10px;padding:10px 12px;background:#f0f5fa;border-radius:8px;font-size:0.82rem;color:#54657a;line-height:1.5;">
           <strong style="color:#0d2137;display:block;margin-bottom:4px;">What to look for</strong>
-          The <strong style="color:#1e6fa5;">ACT</strong> tops activities like bush walking — reflecting its educated, outdoorsy population.
+          The <strong style="color:#1e6fa5;">ACT</strong> tops bush walking — educated, outdoorsy population.
           The <strong style="color:#1e6fa5;">NT</strong> leads in gym despite remoteness.
-          <strong style="color:#c45c6a;">Poor health</strong> is the #1 barrier in every state — but in the ACT,
+          <strong style="color:#c45c6a;">Poor health</strong> is #1 barrier everywhere — but in ACT,
           <strong style="color:#c45c6a;">time pressure</strong> overtakes it.
         </div>
       </div>
-      <div id="chart-stateexp-bars" style="flex:1;min-width:280px;padding-top:4px;"></div>
     </div>
     <p class="caption" style="margin-top:14px;"><b>Try it:</b> click any state on the map — both panels
-      rebuild instantly showing that state's top activities (blue) and top barriers (coral).</p>
+  rebuild instantly showing that state's top activities (blue) and top barriers (coral).
+  <b>Key patterns:</b> Walking dominates everywhere, but the mix of activities #2–8 varies noticeably by state —
+  ACT and NT skew toward bush walking and gym, while coastal states like QLD and WA show higher swimming.
+  On the barrier side, <b>poor health and age</b> lead in most states, but the ACT stands out:
+  <b>not enough time</b> ranks higher there than anywhere else, reflecting its working-age, high-income population.
+</p>
   </div>
 </div>
 
@@ -134,7 +139,7 @@
   </div>
 </div>
 
-<div class="divider"><hr/></div>
+
 
 <!-- ═══ SECTION 2 — WHAT ═══ -->
 <div class="sec-head">
@@ -173,7 +178,7 @@
   </div>
 </div>
 
-<div class="divider"><hr/></div>
+
 
 <!-- ═══ SECTION 3 — WHO ═══ -->
 <div class="sec-head">
@@ -182,28 +187,6 @@
   <p class="sub">The same country contains very different sporting lives depending on who you are.</p>
 </div>
 
-<!--
-  ══════════════════════════════════════════════════════════════
-  PATCH cho index.html — Section 03 (Who) layout fix
-  
-  VẤN ĐỀ: Fig 5 (heatmap) và Fig 6 (butterfly) cùng 1 column trái
-           → Fig 6 dài ~800px bị overflow và annotation Golf lồi ra ngoài
-  
-  FIX: Tách Fig 6 ra thành full-width row riêng bên dưới
-  
-  CÁCH DÙNG:
-    1. Trong index.html, tìm đoạn BẮT ĐẦU bằng:
-         <div class="grid text-right">
-           <div class="cards">
-             <div class="card">
-               <div class="figlabel">Fig 5
-    
-    2. Xoá từ đó đến hết thẻ </div> đóng của grid text-right đó
-       (bao gồm cả Fig 5 card, Fig 6 card, và prose block)
-    
-    3. Thay bằng toàn bộ nội dung trong file này (bên dưới)
-  ══════════════════════════════════════════════════════════════
--->
 
 <!-- ── Fig 5 + prose (2-column: chart left, prose right) ── -->
 <!-- Section 03 Who — custom 2-col layout:
@@ -257,7 +240,7 @@
   </div>
 </div>
 
-<div class="divider"><hr/></div>
+
 
 <!-- ═══ SECTION 4 — HOW ═══ -->
 <div class="sec-head">
@@ -289,7 +272,25 @@
   </div>
 </div>
 
-<div class="divider"><hr/></div>
+<!-- ══════════════════════════════════════════════════════════
+     Fig 9 — Entity-type stacked bar
+     PLACE: Inside Section 04 (How), right after the closing
+     </div> of the chart-lifecycle card.
+     ══════════════════════════════════════════════════════════ -->
+
+<div class="grid full" style="margin-top:24px;">
+  <div class="card">
+    <div class="figlabel">Fig 9 · Stacked bar</div>
+    <div class="figtitle">Where people do organised sport — it depends entirely on the activity</div>
+    <div class="chart-host" id="chart-entitytype"></div>
+    <p class="caption">Each bar shows where the <em>organised</em> portion of an activity takes
+      place, as a share of all Australian adults. <b>Netball and football</b> are almost entirely
+      club-based. <b>Pilates and Yoga</b> happen almost entirely in commercial studios or with
+      personal trainers. Traditional "club sport" is a shrinking slice of how Australians move.
+      Source: AusPlay 2025.</p>
+  </div>
+</div>
+
 
 <!-- ═══ SECTION 5 — CHANGING ═══ -->
 <div class="sec-head">
@@ -301,7 +302,7 @@
 <div class="grid text-right">
   <div class="cards">
     <div class="card">
-      <div class="figlabel">Fig 9 · Bump / rank-slope</div>
+      <div class="figlabel">Fig 10 · Bump / rank-slope</div>
       <div class="figtitle">How the top activities reshuffled, 2023/24 → 2025</div>
       <div class="chart-host" id="chart-bump"></div>
       <p class="caption">Each line tracks one activity's rank across three survey rounds.
@@ -320,7 +321,7 @@
   </div>
 </div>
 
-<div class="divider"><hr/></div>
+
 
 <!-- ═══ SECTION 6 — WHY ═══ -->
 <div class="sec-head">
@@ -331,7 +332,7 @@
 
 <div class="grid full">
   <div class="card">
-    <div class="figlabel">Fig 10 · Connected scatter — brush to filter</div>
+    <div class="figlabel">Fig 11 · Connected scatter — brush to filter</div>
     <div class="figtitle">Where men and women agree on motivation and barriers — and where they don't</div>
     <div class="chart-host" id="chart-mbscatter"></div>
     <p class="caption"><b>Try it:</b> every dot is a reason — motivations (blue) and barriers (coral)
@@ -355,30 +356,7 @@
   </div>
 </div>
 
-<!-- ============================================================
-     HTML ADDITIONS for index.html
-     Two new chart cards + instructions for where to place them
-     ============================================================ -->
 
-
-<!-- ══════════════════════════════════════════════════════════
-     Fig 11 — Entity-type stacked bar
-     PLACE: Inside Section 04 (How), right after the closing
-     </div> of the chart-lifecycle card.
-     ══════════════════════════════════════════════════════════ -->
-
-<div class="grid full" style="margin-top:24px;">
-  <div class="card">
-    <div class="figlabel">Fig 11 · Stacked bar</div>
-    <div class="figtitle">Where people do organised sport — it depends entirely on the activity</div>
-    <div class="chart-host" id="chart-entitytype"></div>
-    <p class="caption">Each bar shows where the <em>organised</em> portion of an activity takes
-      place, as a share of all Australian adults. <b>Netball and football</b> are almost entirely
-      club-based. <b>Pilates and Yoga</b> happen almost entirely in commercial studios or with
-      personal trainers. Traditional "club sport" is a shrinking slice of how Australians move.
-      Source: AusPlay 2025.</p>
-  </div>
-</div>
 
 
 <!-- ══════════════════════════════════════════════════════════
@@ -396,7 +374,7 @@
   <div class="meta">
     <div>
       <p><strong>Domain.</strong> Sport &amp; physical activity participation in Australia.</p>
-      <p><strong>Author.</strong> FIT2179 Data Visualisation 2, Monash University, 2026.</p>
+      <p><strong>Author.</strong> Nguyen Phan Quang Bao (Robert Nguyen), FIT2179 Data Visualisation 2, Monash University, 2026.</p>
       <p><strong>Built with</strong> Vega-Lite v5, HTML/CSS.</p>
     </div>
     <div>

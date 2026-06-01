@@ -50,7 +50,16 @@ function show(id, spec){
     }
     vegaEmbed("#"+id, s, embedOpts).then(()=>{
       const svg = el.querySelector('svg.marks');
-      if(svg && specH){ svg.style.width='100%'; svg.style.height=specH+'px'; svg.style.display='block'; }
+      if(svg && specH){
+        svg.style.width='100%';
+        svg.style.height=specH+'px';
+        svg.style.display='block';
+        // Remove extra whitespace from vega wrapper divs
+        const wrap = svg.parentElement;
+        if(wrap){ wrap.style.height=specH+'px'; wrap.style.overflow='hidden'; }
+        el.style.height=specH+'px';
+        el.style.overflow='hidden';
+      }
     }).catch(console.error);
   }
   let attempts = 0;
@@ -291,7 +300,7 @@ function ageHeatSpec(){
          "x":{"field":"age","type":"ordinal","title":"Age group",
               "sort":["15-17","18-24","25-34","35-44","45-54","55-64","65+"],
               "axis":{"labelAngle":0,"labelFontSize":10}},
-         "color":{"field":"pct","type":"quantitative","title":"Rate (%)","scale":{"range":["#fdd9a0","#f5a623","#c45c00"],"domain":[0,50]}},
+         "color":{"field":"pct","type":"quantitative","title":"Rate (%)","scale":{"range":["#deebf7","#2171b5","#08306b"],"domain":[0,55]}},
          "tooltip":[{"field":"sport","title":"Activity"},{"field":"age","title":"Age"},{"field":"pct","title":"Rate (%)","format":".1f"}]
        }},
       /* highlight entire Golf row with coral outline */
@@ -494,7 +503,7 @@ function bumpSpec(){
          "color":{
            "condition":[
              {"test":"datum.sport==='Pilates'||datum.sport==='Fitness/Gym'","value":TEAL},
-             {"test":"datum.sport==='Basketball'||datum.sport==='Yoga'||datum.sport==='Football/soccer'","value":CORAL}
+             {"test":"datum.sport==='Basketball'||datum.sport==='Yoga'||datum.sport==='Football/soccer'","value":"#e05252"}
            ],
            "value":"#c8d8e8"
          },
@@ -509,7 +518,7 @@ function bumpSpec(){
          "color":{
            "condition":[
              {"test":"datum.sport==='Pilates'||datum.sport==='Fitness/Gym'","value":TEAL},
-             {"test":"datum.sport==='Basketball'||datum.sport==='Yoga'||datum.sport==='Football/soccer'","value":CORAL}
+             {"test":"datum.sport==='Basketball'||datum.sport==='Yoga'||datum.sport==='Football/soccer'","value":"#e05252"}
            ],
            "value":"#c8d8e8"
          },
@@ -603,7 +612,7 @@ function entityTypeSpec(){
         "sort":["Club-based","Commercial studio","Other (PT / school)"],
         "scale":{
           "domain":["Club-based","Commercial studio","Other (PT / school)"],
-          "range":["#1e6fa5","#e07b8a","#b8c8d8"]
+          "range":["#08306b","#2171b5","#9ecae1"]
         },
         "legend":{
           "title":"Venue type","titleFontSize":10,"titleColor":NAVY,
@@ -656,7 +665,7 @@ function stateExplorerSpec(){
       +acts.map(r=>barRow(r.activity, r.pct, maxAct, '#2b7bb5')).join('')+'</div>'
       +'<div>'
       +'<div style="font-size:12px;font-weight:600;color:#c45c6a;margin-bottom:10px;">Top barriers — '+stateName+'</div>'
-      +bars.map(r=>barRow(r.barrier, r.pct, maxBar, '#e07b8a')).join('')+'</div>';
+      +bars.map(r=>barRow(r.barrier, r.pct, maxBar, '#e05252')).join('')+'</div>';
   }
 
   const mapSpec = {
@@ -672,8 +681,8 @@ function stateExplorerSpec(){
        "params":[{"name":"picked","select":{"type":"point","fields":["abbr"]},"value":[{"abbr":"VIC"}]}],
        "mark":{"type":"geoshape","stroke":"#fff","strokeWidth":1.5,"cursor":"pointer"},
        "encoding":{
-         "color":{"value":"#6baed6"},
-         "opacity":{"condition":{"param":"picked","value":1},"value":0.35},
+         "color":{"value":"#b0bec5"},
+         "opacity":{"condition":{"param":"picked","value":1},"value":0.10},
          "tooltip":[{"field":"properties.STATE_NAME","type":"nominal","title":"State"},
                     {"field":"annual","title":"Annual (%)","format":".1f"},
                     {"field":"active","title":"Active people","format":","}]
@@ -692,11 +701,11 @@ function initStateExplorer(){
   renderBars('VIC');
 
   const card = mapEl.closest('.card') || mapEl;
-  const W = Math.max(card.clientWidth - 48, 300);
-  const mW = Math.round(W * 0.36);
+  const W = Math.max(card.clientWidth - 50, 300);
+  const mW = 210;
   mapSpec.width = mW;
-  mapSpec.height = Math.round(mW * 0.92);
-  mapSpec.projection.scale = Math.round(370*(mW/300));
+  mapSpec.height = Math.round(mW * 0.75);
+  mapSpec.projection.scale = Math.round(320*(mW/300));
 
   vegaEmbed('#chart-stateexp-map', mapSpec, {actions:false, renderer:'svg'}).then(result=>{
     const v = result.view;
@@ -739,10 +748,10 @@ function initStateExplorer(){
    --------------------------------------------------------------------------- */
 function bivariateMapSpec(){
   const PAL = {
-    "0-0":"#b0b0d0","1-0":"#6699cc","2-0":"#1a5fa6",
-    "0-1":"#cc88aa","1-1":"#8877aa","2-1":"#3355aa",
-    "0-2":"#cc2266","1-2":"#882266","2-2":"#221155"
-  };
+    "0-0":"#deebf7","1-0":"#9ecae1","2-0":"#2171b5",
+    "0-1":"#c6dbef","1-1":"#6baed6","2-1":"#08519c",
+    "0-2":"#9ecae1","1-2":"#4292c6","2-2":"#08306b"
+};
   const states = DATA.states.map(s=>({
     state:s.state, abbr:s.abbr, annual:s.annual,
     committed:s.committed, bi_class:s.bi_class, col:PAL[s.bi_class], pop:s.pop, active:s.active
@@ -792,10 +801,10 @@ function bivariateMapSpec(){
   };
   spec._fitWidth = function(W){
     const s = JSON.parse(JSON.stringify(spec)); delete s._fitWidth;
-    const lW = 140, mW = W - lW - 32;
+    const lW = 300, mW = W - lW - 32;
     s.hconcat[0].width = mW;
     s.hconcat[0].height = Math.round(mW * 0.82);
-    s.hconcat[0].projection = {"type":"mercator","center":[110,-13],"scale":Math.round(620*(mW/500))};
+    s.hconcat[0].projection = {"type":"mercator","center":[110,-10],"scale":Math.round(620*(mW/500))};
     s.hconcat[1].width = lW; s.hconcat[1].height = lW;
     return s;
   };
@@ -974,7 +983,7 @@ function motivBarrierScatterSpec(){
        "encoding":{
          "x":{"field":"male","type":"quantitative","title":"Male (%)","scale":{"domain":[0,70]}},
          "y":{"field":"female","type":"quantitative","title":"Female (%)","scale":{"domain":[0,70]}},
-         "color":{"field":"type","type":"nominal","scale":{"domain":["Motivation","Barrier"],"range":[TEAL,CORAL]},
+         "color":{"field":"type","type":"nominal","scale":{"domain":["Motivation","Barrier"],"range":[TEAL,"#e05252"]},
                   "legend":{"orient":"top","title":null,"direction":"horizontal"}},
          "size":{"condition":{"param":"hov","value":260},"value":120},
          "opacity":{"condition":{"param":"brush","value":0.95},"value":0.18},
@@ -994,7 +1003,7 @@ function motivBarrierScatterSpec(){
     "encoding":{
       "y":{"field":"label","type":"nominal","sort":"-x","title":null,"axis":{"labelFontSize":9}},
       "x":{"field":"all","type":"quantitative","title":"Overall (%)"},
-      "color":{"field":"type","type":"nominal","scale":{"domain":["Motivation","Barrier"],"range":[TEAL,CORAL]},"legend":null},
+      "color":{"field":"type","type":"nominal","scale":{"domain":["Motivation","Barrier"],"range":[TEAL,"#e05252"]},"legend":null},
       "tooltip":[{"field":"label","title":"Reason"},{"field":"type","title":"Type"},{"field":"all","title":"Overall (%)","format":".1f"}]
     }
   };
