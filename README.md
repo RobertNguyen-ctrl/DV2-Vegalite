@@ -47,6 +47,41 @@ the gallery page by [`js/`](js/). Design sketches and wireframes are in
      xuống ngay dưới đoạn mô tả chart tương ứng. Chín ảnh xếp liền nhau không có
      chữ giữa thì người đọc không biết đang xem gì. -->
 
+
+### Data
+
+| Source | Used for |
+|---|---|
+| [AusPlay survey, Jan–Dec 2025](https://www.ausport.gov.au/clearinghouse/research/ausplay/results) — Australian Sports Commission | Participation by activity, frequency, age band, gender, state, motivation and barrier. National survey of roughly 20,000 adults. |
+| [ABS National, state and territory population, Dec 2024](https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release) (Cat. no. 3101.0) | Converting participation percentages into headcounts, so a change in percentage points also reads as a number of people |
+
+Both sources are recent, authoritative and openly licensed. Data is used as published —
+only light reshaping (pivoting and ranking) to suit each idiom, plus two derived fields
+calculated from the raw columns:
+
+- **`gender_gap`** — male minus female participation, in percentage points. Signed, which
+  is what makes the diverging bar chart the right idiom for it.
+- **`organised_ratio` / `informal_ratio`** — share of each activity's participation that
+  happens through a club or organisation versus informally. Hockey sits at 94.5% organised,
+  recreational walking at the opposite extreme.
+
+Reshaping was done ahead of time rather than in the browser: Vega-Lite transforms are
+capable of most of it, but pre-shaping keeps each spec readable and the page fast.
+
+#### Prepared files
+
+30 CSVs in [`data/source_csv/`](data/source_csv/), grouped by the grain each idiom needs:
+
+| Folder | Grain | Feeds |
+|---|---|---|
+| [`national/`](data/source_csv/national/) | Australia-wide, by period | Activity ranking, frequency and demographic trends, motivations, barriers, organised-vs-informal shift, year-on-year change |
+| [`states/`](data/source_csv/states/) | One row per state (ACT, NSW, NT, QLD, SA, TAS, VIC, WA) | Choropleth, bivariate map, state-level activity, age, frequency, motivation and barrier breakdowns |
+| [`sports/`](data/source_csv/sports/) | One row per activity | Age × activity heatmap, gender gap, rank slope chart, organised ratio, entity type, all-period trends |
+
+State boundaries: [`data/aus_states.topojson`](data/). TopoJSON rather than GeoJSON —
+shared-arc encoding cuts the file substantially, which matters for a map loaded
+client-side.
+
 ## Part 2 — Australian Food Price Index dashboard
 
 A single scrolling dashboard answering: **how are Australians spending on food and
