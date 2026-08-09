@@ -61,10 +61,17 @@ axis becomes a hairball. Shared y-scale so magnitudes stay comparable across pan
 
 ## Tableau
 
+**🔗 [View on Tableau Public →](https://public.tableau.com/app/profile/bao.nguyen4604/viz/Assignment1_17763127288750/Dashboard1)**
+<img width="900" height="1102" alt="Screenshot 2026-08-09 141315" src="https://github.com/user-attachments/assets/52dc29cb-a677-4e98-86ca-bbbc8a2cdc6b" />
+<img width="898" height="1470" alt="Screenshot 2026-08-09 141333" src="https://github.com/user-attachments/assets/335e87a8-b580-46f9-8c22-5507490ae9d1" />
+<img width="899" height="1200" alt="Screenshot 2026-08-09 141649" src="https://github.com/user-attachments/assets/5471201b-6b80-450b-8b1c-2672eb7bbb87" />
+<img width="894" height="1256" alt="Screenshot 2026-08-09 141714" src="https://github.com/user-attachments/assets/a720dfb2-9007-407f-a842-4ca6244d599e" />
+
+
+
+
 <!-- TODO: publish lên Tableau Public (miễn phí) rồi dán link vào đây.
 File .twbx cũng commit vào tableau/ nhưng link mới là thứ người ta bấm.
-
-**🔗 [View on Tableau Public →](link)**
 
 ![Tableau dashboard](docs/screenshots/tableau-dashboard.png)
 -->
