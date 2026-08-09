@@ -7,7 +7,7 @@ encoding for the question rather than producing a chart that merely works.
 
 | | Live | Tool |
 |---|---|---|
-| Chart gallery | **[View live →](https://robertnguyen-ctrl.github.io/DV2-Vegalite/)** | Vega-Lite v5, vanilla JS |
+| Chart gallery | **[View live →](https://robertnguyen-ctrl.github.io/data-viz-portfolio/)** | Vega-Lite v5, vanilla JS |
 | Food Price Index dashboard | **[View on Tableau Public →](https://public.tableau.com/app/profile/bao.nguyen4604/viz/Assignment1_17763127288750/Dashboard1)** | Tableau Public |
 
 <img width="1366" alt="Vega-Lite chart gallery" src="https://github.com/user-attachments/assets/cb747859-1275-4c4b-92f8-6c7ac8c4467b" />
